@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="row">
-            <div v-for="character in characters" class="col-4">
+            <div v-for="character in characters" class="col-6">
                 <img :src="store.imgBasePath + character.image" :alt="character.name">
                 <div>
                     <h3>{{ character.name }}</h3>
