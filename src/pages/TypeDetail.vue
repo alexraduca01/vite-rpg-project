@@ -13,6 +13,24 @@
 <script>
     export default {
         name: 'TypeDetail',
+        data(){
+            return {
+                store,
+                type: {},
+            }
+        },
+        methods:{
+            getTypeData(){
+                console.log(this.$route);
+                axios.get(`${this.store.apiUrl}/types/${this.$route.params.slug}`).then((res)=>{
+                    console.log(res.data);
+                    this.type = res.data.results 
+                })
+            }
+        },
+        created(){
+            this.getTypeData();
+        }
     }
 </script>
 
