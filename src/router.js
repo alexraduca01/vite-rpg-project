@@ -18,31 +18,31 @@ const router = createRouter({
       name: 'characters',
       component: AppCharacters
     },
-    // {
-    //   path: '/characters/:slug',
-    //   name: 'characters',
-    //   component: CharacterDetail
-    // },
+    {
+      path: '/characters/:slug',
+      name: 'character-detail',
+      component: CharacterDetail
+    },
     {
       path: '/items',
       name: 'items',
       component: AppItems
     },
-    // {
-    //   path: '/items/:slug',
-    //   name: 'items',
-    //   component: ItemDetail
-    // },
+    {
+      path: '/items/:slug',
+      name: 'item-detail',
+      component: ItemDetail
+    },
     {
       path: '/types',
       name: 'types',
       component: AppTypes
     },
-    // {
-    //   path: '/types/:slug',
-    //   name: 'types',
-    //   component: TypeDetail
-    // },
+    {
+      path: '/types/:slug',
+      name: 'type-detail',
+      component: TypeDetail
+    },
   ]
 })
 
