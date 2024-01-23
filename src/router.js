@@ -20,7 +20,7 @@ const router = createRouter({
     },
     {
       path: '/characters/:slug',
-      name: 'character',
+      name: 'character-detail',
       component: CharacterDetail
     },
     {
@@ -30,7 +30,7 @@ const router = createRouter({
     },
     {
       path: '/items/:slug',
-      name: 'item',
+      name: 'item-detail',
       component: ItemDetail
     },
     {
@@ -40,7 +40,7 @@ const router = createRouter({
     },
     {
       path: '/types/:slug',
-      name: 'type',
+      name: 'type-detail',
       component: TypeDetail
     },
   ]
