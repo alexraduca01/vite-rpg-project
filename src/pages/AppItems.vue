@@ -3,13 +3,27 @@
 
     </div>
 </template>
-
 <script>
-    export default {
-        name: 'AppItems',
+
+
+import { store } from "../store";
+import axios from "axios";
+
+
+export default {
+    name: 'AppItems',
+    data() {
+        return {
+            store,
+        }
+    },
+    methods: {
+      
+    },
+    created() {
     }
+}
 </script>
 
 <style lang="scss" scoped>
-
 </style>
