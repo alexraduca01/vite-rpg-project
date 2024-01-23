@@ -34,9 +34,9 @@ import { store } from '../store';
         },
         methods: {
             getAllCharacters(){
-                axios.get(store.apiUrl + '/characters').then((res) => {
+                axios.get(store.apiUrl + 'characters').then((res) => {
                     console.log(res.data);
-                    this.characters = res.data.results;
+                    this.characters = res.data;
                 })
             }
         },
