@@ -16,6 +16,7 @@
                         <li>Sex: {{ character.sex }}</li>
                     </ul>
                 </div>
+                <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }"></router-link>View</button>
             </div>
         </div>
     </div>
