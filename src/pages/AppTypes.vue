@@ -3,11 +3,11 @@
         <div class="card-body">
             <h5 class="card-title">{{ type.name }}</h5>
             <p class="card-text">{{ type.description }}</p>
-            <p class="card-text my-4 fs-2">
-                // <router-link :to="{ name: 'TypesDetail', params: { id: type.id }}" class="btn btn-primary fs-3 mb-3" >
-                //     {{ type.name }}
-                // </router-link>
-            </p>
+            // <p class="card-text my-4 fs-2">
+            //   <!--   <router-link :to="{ name: 'TypesDetail', params: { id: type.id }}" class="btn btn-primary fs-3 mb-3" >
+            //          {{ type.name }}
+            //      </router-link> -->
+            // </p>
         </div>
     </div>
 </template>
@@ -23,6 +23,17 @@ import axios from 'axios';
                 types: [],
             }
         },
+        methods: {
+            getAllTypes(){
+                axios.get(store.apiUrl + '/types').then((res) => {
+                    console.log(res.data);
+                    this.types = res.data;
+                })
+            }
+        },
+        mounted(){
+            this.getAllTypes();
+        }
     }
 </script>
 
