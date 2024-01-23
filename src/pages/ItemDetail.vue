@@ -28,13 +28,28 @@ import { store } from '../store';
         data() {
         return {
             store,
+            item: null
            
         }
     },
         methods: {
+        getItemDetail() {
+            console.log(this.$route);
+            axios.get(`${this.store.apiUrl}items/${this.$route.params.slug}`).then((res) => {
+                if (res.data) {
+                    this.item = res.data
+                    console.log(this.item);
+                } else {
+                    this.$router.push({ name: 'not-found' })
+                }
+            })
+        }
+    },
+    mounted() {
+        this.getItemDetail()
+    }
 
         }
-    }
 
 
 
