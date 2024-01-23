@@ -1,5 +1,12 @@
 <template>
     <main class="container">
+        <h1>Items List</h1>
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 p-2 " v-for="item in store.items" :key="item.id">
+                <AppCard :item="item" />
+            </div>
+
+        </div>
 
     </main>
 </template>
@@ -21,9 +28,18 @@ export default {
         }
     },
     methods: {
-      
+       getAllItems() {
+            axios.get(`${this.store.apiUrl}/items`).then((res) => {
+                this.store.items = res.data;
+                console.log(this.store.items);
+            }).catch((err) => {
+
+            })
+
+        }
     },
-    created() {
+    mounted() {
+        this.getAllItems();     
     }
 }
 </script>
