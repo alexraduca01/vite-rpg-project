@@ -46,6 +46,10 @@
                         label: "Items",
                         name: "items",
                     },
+                    {
+                        label: "Game",
+                        name: "game",
+                    },
                 ],
             }
         }
