@@ -39,4 +39,10 @@ import axios from 'axios';
 
 <style lang="scss" scoped>
 
+main {
+  background-image: url('../../public/img/game-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 </style>

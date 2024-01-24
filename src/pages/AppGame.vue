@@ -1,20 +1,22 @@
 <template>
-    <div class="bg-success d-flex flex-column justify-content-center vh-100">
-        <div class="container bg-black text-white vh-80 p-0">
+    <div class="d-flex flex-column justify-content-center vh-100">
+        <div class="container game-box transparent-bg text-white vh-80 p-0">
             <div class="d-flex justify-content-around h-70 align-items-center">
-                <div class="my-card bg-danger">
+                <div class="my-card">
                     
                 </div>
-                <div class="my-card bg-danger">
+                <div class="my-card">
                     
                 </div>
             </div>
             <div class="d-flex flex-wrap h-30 w-75 m-auto ">
-                <swiper :slidesPerView="5" :spaceBetween="10" :freeMode="true" :modules="modules" class="mySwiper">
+                <swiper :slidesPerView="5" :spaceBetween="10" :freeMode="true" :modules="modules" class="mySwiper rounded">
                     <swiper-slide class="char-box" v-for="item in store.characters">
                         <img :src="store.imgBasePath + item.image" class="img-fluid" :alt="item.name">
-                        <h6 class="text-center m-0 py-3">{{ item.name }}</h6>
-                        <h6 class="text-center m-0">{{ item.type.name }}</h6>
+                        <div class="transparent-bg py-3 rounded-bottom-5">
+                            <h6 class="text-center m-0 py-1 text-danger">{{ item.name }}</h6>
+                            <h6 class="text-center m-0 text-warning">{{ item.type.name }}</h6>
+                        </div>
                     </swiper-slide>
                 </swiper>
             </div>
@@ -50,7 +52,7 @@ import 'swiper/css/pagination';
                 })
             },
             test(){
-                console.log('suca');
+                console.log('test');
             }
         },
         mounted(){
@@ -75,7 +77,11 @@ import 'swiper/css/pagination';
 .my-card {
     width: 250px;
     height: 400px;
-    border-radius: 10px;
+    border-radius: 25px;
+    background-image: url('../../public/img/card-back.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .debug {
@@ -85,5 +91,14 @@ import 'swiper/css/pagination';
 .char-box {
     border-radius: 25px;
     overflow: hidden;
+    user-select: none;
+}
+
+.game-box {
+    border-radius: 50px;
+}
+
+.transparent-bg {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 </style>
