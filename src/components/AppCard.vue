@@ -11,20 +11,35 @@
           <p class="text-dark px-3">{{ character.description }}</p>
           <div class="d-flex justify-content-center">
             <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }">View
-              More</router-link></button>
+                More</router-link></button>
           </div>
-          <button class="flip-card-btn-turn-to-back">Stats</button>
+          <button class="flip-card-btn-turn-to-back" @click="setAttackValue(character.attack)">Stats</button>
         </div>
       </div>
       <div class="flip-card-back">
         <div class='card-body'>
           <h4 class="text-center text-dark">Stats</h4>
           <ul class="list-unstyled text-dark">
-            <li>Attack: {{ character.attack }}</li>
-            <li>Defense: {{ character.defence }}</li>
-            <li>Health: {{ character.life }}</li>
-            <li>Speed: {{ character.speed }}</li>
-            <li>Sex: {{ character.sex }}</li>
+            <li>Attack: {{ character.attack }}
+              <div class="bar-container">
+                <div class="attack-bar"></div>
+              </div>
+            </li>
+            <li>Defense: {{ character.defence }}
+              <div class="bar-container">
+                <div class="defense-bar"></div>
+              </div>
+            </li>
+            <li>Health: {{ character.life }}
+              <div class="bar-container">
+                <div class="life-bar"></div>
+              </div>
+            </li>
+            <li>Speed: {{ character.speed }}
+              <div class="bar-container">
+                <div class="speed-bar"></div>
+              </div>
+            </li>
           </ul>
           <button class="flip-card-btn-turn-to-front text-dark">Return</button>
         </div>
@@ -75,6 +90,14 @@ export default {
           cards[i].classList.toggle('do-flip')
         }
       }
+    },
+    setAttackValue(value) {
+      value = Math.max(0, Math.min(20, value));
+      let percentage = (value / 20) * 100;
+      let attackBars = document.querySelectorAll(".attack-bar")
+      attackBars.forEach(function (attackBar) {
+        attackBar.style.width = percentage + '%';
+      });
     }
   },
   mounted() {
@@ -156,5 +179,16 @@ export default {
 
 .flip-card-back h4 {
   color: white;
+}
+
+.bar-container {
+  width: 230px;
+  height: 10px;
+  background-color: lightgray;
+}
+
+.attack-bar {
+  height: 100%;
+  background-color: red;
 }
 </style>
