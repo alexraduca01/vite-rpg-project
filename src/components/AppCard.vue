@@ -13,7 +13,7 @@
             <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }">View
                 More</router-link></button>
           </div>
-          <button class="flip-card-btn-turn-to-back" @click="setAttackValue(character.attack), flipAllCardsToFront()">Stats</button>
+          <button class="flip-card-btn-turn-to-back" @click="flipAllCardsToFront(), setAttackValue(character.attack), setDefenseValue(character.defence)">Stats</button>
         </div>
       </div>
       <div class="flip-card-back">
@@ -59,17 +59,6 @@ export default {
     }
   },
   methods: {
-    // getStats(prop, stat) {
-    //   let percentage = prop.stat / 20 * 100;
-    //   percentage = percentage * 3;
-    //   return `width: ${percentage}px;`;
-    // },
-    // getStatsDiff(prop, stat) {
-    //   let difference = 20 - prop.stat;
-    //   let percentage = difference / 20 * 100;
-    //   percentage = percentage * 3;
-    //   return `width: ${percentage}px;`;
-    // }
     cardFlip() {
       const flipCardWrapAll = document.querySelector("#flip-card-wrap-all")
       const cardsWrapper = document.querySelectorAll(".flip-card-3D-wrapper")
@@ -109,7 +98,15 @@ export default {
       attackBars.forEach(function (attackBar) {
         attackBar.style.width = percentage + '%';
       });
-    }
+    },
+    setDefenseValue(value) {
+      value = Math.max(0, Math.min(20, value));
+      let percentage = (value / 20) * 100;
+      let defenseBars = document.querySelectorAll(".defense-bar")
+      defenseBars.forEach(function (defenseBar) {
+        defenseBar.style.width = percentage + '%';
+      });
+    },
   },
   mounted() {
     this.cardFlip()
