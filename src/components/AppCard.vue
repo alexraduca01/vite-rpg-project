@@ -13,7 +13,7 @@
             <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }">View
                 More</router-link></button>
           </div>
-          <button class="flip-card-btn-turn-to-back" @click="flipAllCardsToFront(), setAttackValue(character.attack), setDefenseValue(character.defence)">Stats</button>
+          <button class="flip-card-btn-turn-to-back" @click="flipAllCardsToFront(), setAttackValue(character.attack), setDefenseValue(character.defence), setLifeValue(character.life)">Stats</button>
         </div>
       </div>
       <div class="flip-card-back">
@@ -105,6 +105,14 @@ export default {
       let defenseBars = document.querySelectorAll(".defense-bar")
       defenseBars.forEach(function (defenseBar) {
         defenseBar.style.width = percentage + '%';
+      });
+    },
+    setLifeValue(value) {
+      value = Math.max(0, Math.min(100, value));
+      let percentage = (value / 100) * 100;
+      let lifeBars = document.querySelectorAll(".life-bar")
+      lifeBars.forEach(function (lifeBar) {
+        lifeBar.style.width = percentage + '%';
       });
     },
   },
