@@ -13,7 +13,7 @@
             <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }">View
                 More</router-link></button>
           </div>
-          <button class="flip-card-btn-turn-to-back" @click="setAttackValue(character.attack)">Stats</button>
+          <button class="flip-card-btn-turn-to-back" @click="setAttackValue(character.attack), flipAllCardsToFront()">Stats</button>
         </div>
       </div>
       <div class="flip-card-back">
@@ -88,6 +88,17 @@ export default {
         backButtons.style.visibility = "visible"
         backButtons.onclick = function () {
           cards[i].classList.toggle('do-flip')
+        }
+      }
+    },
+    flipAllCardsToFront() {
+      const cards = document.querySelectorAll(".flip-card");
+
+      for (let i = 0; i < cards.length; i++) {
+        const isBackFlipped = cards[i].classList.contains('do-flip');
+
+        if (isBackFlipped) {
+          cards[i].classList.remove('do-flip');
         }
       }
     },
@@ -190,5 +201,20 @@ export default {
 .attack-bar {
   height: 100%;
   background-color: red;
+}
+
+.defense-bar {
+  height: 100%;
+  background-color: blue;
+}
+
+.life-bar {
+  height: 100%;
+  background-color: green;
+}
+
+.speed-bar {
+  height: 100%;
+  background-color: purple;
 }
 </style>
