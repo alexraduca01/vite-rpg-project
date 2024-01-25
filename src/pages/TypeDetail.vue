@@ -11,20 +11,22 @@
 </template>
 
 <script>
+import { store } from '../store';
+import axios from 'axios';
     export default {
         name: 'TypeDetail',
         data(){
             return {
                 store,
-                type: {},
+                type: [],
             }
         },
         methods:{
             getTypeData(){
                 console.log(this.$route);
-                axios.get(`${this.store.apiUrl}/types/${this.$route.params.slug}`).then((res)=>{
+                axios.get(`${this.store.apiUrl}types/${this.$route.params.id}`).then((res)=>{
                     console.log(res.data);
-                    this.type = res.data.results 
+                    this.type = res.data; 
                 })
             }
         },
