@@ -91,6 +91,15 @@ import 'swiper/css/pagination';
 .char-box {
     border-radius: 25px;
     overflow: hidden;
+    user-select: none;
+}
+
+.game-box {
+    border-radius: 50px;
+}
+
+.transparent-bg {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .game-box {
