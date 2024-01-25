@@ -7,10 +7,10 @@
                 <h5 class="card-title ">Name</h5>
             </div>
             <ul class="list-group list-group-light list-group-small">
-                <li class="list-group-item px-4">type</li>
-                <li class="list-group-item px-4">weight</li>
-                <li class="list-group-item px-4">cost</li>
-            </ul>
+                        <li class="list-group-item px-4">Type: {{ item.type }}</li>
+                        <li class="list-group-item px-4">Weight: {{ item.weight }}</li>
+                        <li class="list-group-item px-4">Cost: {{ item.cost }}</li>
+                </ul>
         </div>
         </div>
 

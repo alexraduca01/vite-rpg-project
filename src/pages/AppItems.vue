@@ -8,15 +8,12 @@
                     <h5 class="card-title ">Name: {{ item.name}}</h5>
                 </div>
                 <ul class="list-group list-group-light list-group-small">
-                    <li class="list-group-item px-4">Type: {{ item.type }}</li>
-                    <li class="list-group-item px-4">Weight: {{ item.weight }}</li>
-                    <li class="list-group-item px-4">Cost: {{ item.cost }}</li>
-                   <li>            
+<!--                    <li>            
                        <router-link :to="{ name: 'item-detail', params: { slug: item.slug } }" class="text-red btn btn-primary ">
                          <h5>More info</h5>
                         </router-link>
                     </li>
-               </ul>
+ -->               </ul>
 
             </div>
 
