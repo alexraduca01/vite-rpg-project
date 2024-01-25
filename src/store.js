@@ -5,4 +5,5 @@ export const store = reactive ({
     imgBasePath: "http://localhost:8000/storage/",
     urlPagination: "?page=",
     characters: [],
+    iaCharacters: [],
 })
