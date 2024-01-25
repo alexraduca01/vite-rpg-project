@@ -1,15 +1,15 @@
 <template>
-    <section class="container">
+    <section class="container d-flex justify-content-center  p-5">
         <div v-if="item">
-            <div class="card" style="width: 21rem;">
-                <img :src="`${store.imgBasePath}${item.image}`" class="card-img-top" alt="...">  
+            <div class="card card-bg p-5 mt-5" style="width: 25rem;">
+                <img :src="`${store.imgBasePath}${item.image}`" class="card-img-top  " alt="{{ item.name }}">  
             <div class="card-body">
-                <h5 class="card-title ">Name</h5>
+                <h4 class="card-title text-center">{{item.name}}</h4>
             </div>
             <ul class="list-group list-group-light list-group-small">
-                        <li class="list-group-item px-4">Type: {{ item.type }}</li>
-                        <li class="list-group-item px-4">Weight: {{ item.weight }}</li>
-                        <li class="list-group-item px-4">Cost: {{ item.cost }}</li>
+                        <li class="list-group-item px-4 li-bg">Type: {{ item.type }}</li>
+                        <li class="list-group-item px-4 li-bg">Weight: {{ item.weight }}</li>
+                        <li class="list-group-item px-4 li-bg">Cost: {{ item.cost }}</li>
                 </ul>
         </div>
         </div>
@@ -28,7 +28,7 @@ import { store } from '../store';
         data() {
         return {
             store,
-            item: null
+            item: {}
            
         }
     },
@@ -56,8 +56,13 @@ import { store } from '../store';
 </script>
 
 <style lang="scss" scoped>
-img{
-    width: 100%;
-    aspect-ratio: 1.5;
+
+.card-bg{
+    background-color:rgba($color: #FEC795, $alpha: 0.8);
+    border: 3px solid white;
+}
+.li-bg{
+    background-color: rgba($color: #4D6067, $alpha: 0.6);
+    border: 1px solid white;
 }
 </style>

@@ -34,11 +34,11 @@ const router = createRouter({
       name: 'items',
       component: AppItems
     },
-    // {
-    //   path: '/items/:slug',
-    //   name: 'item-detail',
-    //   component: ItemDetail
-    // },
+     {
+      path: '/items/:slug',
+      name: 'item-detail',
+      component: ItemDetail
+     },
     {
       path: '/types',
       name: 'types',
