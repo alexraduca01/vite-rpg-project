@@ -1,6 +1,6 @@
 <template>
   <!-- Characters Card -->
-  <div class="flip-card-3D-wrapper">
+  <div class="flip-card-3D-wrapper pt-80">
     <div class="flip-card">
       <div class="flip-card-front">
         <div class='card-img'>
@@ -229,5 +229,9 @@ export default {
 .speed-bar {
   height: 100%;
   background-color: purple;
+}
+
+.pt-80 {
+  padding-top: 80px;
 }
 </style>

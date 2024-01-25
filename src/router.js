@@ -24,11 +24,11 @@ const router = createRouter({
       name: 'characters',
       component: AppCharacters
     },
-    // {
-    //   path: '/characters/:slug',
-    //   name: 'character-detail',
-    //   component: CharacterDetail
-    // },
+    {
+      path: '/characters/:slug',
+      name: 'character-detail',
+      component: CharacterDetail
+    },
     {
       path: '/items',
       name: 'items',
