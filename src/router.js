@@ -3,10 +3,12 @@ import AppHome from './pages/AppHome.vue'
 import AppCharacters from './pages/AppCharacters.vue'
 import AppItems from './pages/AppItems.vue'
 import AppTypes from './pages/AppTypes.vue'
-// import CharacterDetail from './pages/CharacterDetail.vue'
+
+import CharacterDetail from './pages/CharacterDetail.vue'
 import ItemDetail from './pages/ItemDetail.vue'
 // import TypeDetail from './pages/TypeDetail.vue'
 import AppGame from './pages/AppGame.vue'
+
 
 
 const router = createRouter({
@@ -32,11 +34,11 @@ const router = createRouter({
       name: 'items',
       component: AppItems
     },
-    {
-      path: '/items/:slug',
-      name: 'item-detail',
-      component: ItemDetail
-    },
+    // {
+    //   path: '/items/:slug',
+    //   name: 'item-detail',
+    //   component: ItemDetail
+    // },
     {
       path: '/types',
       name: 'types',
