@@ -101,4 +101,12 @@ import 'swiper/css/pagination';
 .transparent-bg {
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.game-box {
+    border-radius: 50px;
+}
+
+.transparent-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 </style>
