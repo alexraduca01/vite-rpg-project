@@ -30,7 +30,7 @@ export default {
     methods: {
         getCharacterData() {
             console.log(this.$route);
-            axios.get(`${this.store.apiUrl}characters/${this.$route.params.id}`).then((res) => {
+            axios.get(`${this.store.apiUrl}characters/${this.$route.params.slug}`).then((res) => {
                 console.log(res.data);
                 if (res.data) {
                     this.character = res.data

@@ -10,7 +10,7 @@
           <h4 class="text-center text-dark">{{ character.name }}</h4>
           <p class="text-dark px-3">{{ character.description }}</p>
           <div class="d-flex justify-content-center">
-            <button><router-link :to="{ name: 'character-detail', params: { id: character.id } }">View
+            <button><router-link :to="{ name: 'character-detail', params: { slug: character.slug } }">View
                 More</router-link></button>
           </div>
           <button class="flip-card-btn-turn-to-back" @click="flipAllCardsToFront(), setAttackValue(character.attack), setDefenseValue(character.defence), setLifeValue(character.life), setSpeedValue(character.speed)">Stats</button>
@@ -141,7 +141,7 @@ export default {
 
 .flip-card {
   height: 100%;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
   transform-style: preserve-3d;
   height: 500px;
 }
