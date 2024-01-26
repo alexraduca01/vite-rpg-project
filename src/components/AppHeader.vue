@@ -50,7 +50,7 @@ import FancyButton from '../components/FancyButton.vue';
                         name: "characters",
                     },
                     {
-                        label: "Types",
+                        label: "Classes",
                         name: "types",
                     },
                     {
