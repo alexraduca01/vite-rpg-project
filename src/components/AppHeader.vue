@@ -13,20 +13,31 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
         <ul class="navbar-nav bg-dark">
           <li class="nav-item" v-for="item in menu">
-            <router-link :to="{ name: item.name }" class="nav-link text-white px-3" active-class="active">{{ item.label }}</router-link>
+            <router-link :to="{ name: item.name }" class="nav-link text-white px-3">
+              <FancyButton :text="item.label" />
+            </router-link>
           </li>
         </ul>
+        <div>
+          <router-link :to="{ name: 'game' }" class="nav-link text-white px-3">
+            <FancyButton :text="'play game'" />
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import FancyButton from '../components/FancyButton.vue';
     export default {
         name: "AppHeader",
+        components: {
+          FancyButton,
+        },
         data() {
             return {
                 menu: [
@@ -46,10 +57,6 @@
                         label: "Items",
                         name: "items",
                     },
-                    {
-                        label: "Game",
-                        name: "game",
-                    },
                 ],
             }
         }
@@ -67,8 +74,5 @@ nav {
     height: 80px;
     width: 100%;
     z-index: 1000;
-}
-.active {
-    color: chartreuse!important;
 }
 </style>
