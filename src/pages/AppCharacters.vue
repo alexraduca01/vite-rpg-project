@@ -1,5 +1,4 @@
 <template>
-    <h1>Characters</h1>
     <div class="container">
         <div class="row">
             <div v-for="character in characters" class="col-4">

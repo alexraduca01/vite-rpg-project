@@ -3,9 +3,9 @@
         <h1 class="text-center">{{ character.name }}</h1>
         <div class="row">
             <div class="d-flex">
-                <div class="col-4">
+                <div class="col-4 pe-4">
                     <div>
-                        <h3>Information</h3>
+                        <h3>Description</h3>
                         <p>{{ character.description }}</p>
                     </div>
 
@@ -27,7 +27,8 @@
                     <img :src="store.imgBasePath + character.image" :alt="character.name">
                 </div>
 
-                <div class="col-3">
+                <!-- Stat Card -->
+                <div class="col-3 ms-4">
                     <div class="card widget-card border-light shadow-sm card-bg">
                         <div class="card-body p-4">
                             <div>
