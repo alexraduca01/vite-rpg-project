@@ -1,7 +1,7 @@
 <template>
     <section class="container d-flex justify-content-center  p-5">
         <div v-if="item">
-            <div class="card card-bg p-5 mt-5" style="width: 25rem;">
+            <div class="card card-bg p-5 mt-5" style="width: 23rem;">
                 <img :src="`${store.imgBasePath}${item.image}`" class="card-img-top  " alt="{{ item.name }}">  
             <div class="card-body">
                 <h4 class="card-title text-center">{{item.name}}</h4>
