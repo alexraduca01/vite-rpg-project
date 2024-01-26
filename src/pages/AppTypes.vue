@@ -1,18 +1,22 @@
 <template>
-    <div class="bgsmoke vh-100 position-relative d-flex align-items-center">
-        <div class="container ">
-            <div class="paddingfix row">
-                <div class="d-flex bgtry justify-content-between align-items-center align-content-center" >
-                    <div class="col-4 justify-content-center ">
-                        <h6 class="text-white things">Game classes</h6>
-                        <div class="d-flex align-items-center align-content-center" v-for="type in types" :key="type.id">
-                            <div class="d-flex cursor-pointer flex-column">
+    <div class="bgsmoke vh-100 d-flex flex-column justify-content-center">
+        <div class="container">
+            <div class="paddingfix ">
+                <div class="bgtry">
+                    <div class="d-flex justify-content-around align-items-center row">
+                        <div class="col-2">
+                            <h6 class="text-white things">Game classes</h6>
+                            <div class="cursor-pointer" v-for="type in types" :key="type.id">
                                 <h4 class="namecolor pointer fontparagraph" @click="counter = type.id - 1" :class="active(type.id - 1)">{{ type.name }}</h4>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex try test">
-                        <img class="" :src="store.imgBasePath + types[counter]?.image" alt="">  
+                        <div class="col-7 d-flex justify-content-center align-items-center text-center">
+                            <img class="" :src="store.imgBasePath + types[counter]?.image" alt="">  
+                        </div>
+                        <div class="col-3 d-flex flex-column justify-content-center">
+                            <h2 class="text-white">{{ types[counter]?.name }}</h2>
+                            <p class="card-text text-white">{{ types[counter]?.description.substr(0, bodyMaxLen) + '...' }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -45,6 +49,7 @@ import TypeDetail from './TypeDetail.vue';
             return {
                 store,
                 types: [],
+                bodyMaxLen: 200,
                 counter: 0
             }
         },
@@ -66,6 +71,14 @@ import TypeDetail from './TypeDetail.vue';
             },
         mounted(){
             this.getAllTypes();
+        },
+        computed: {
+            truncateBody(description){
+                if(description.length > this.bodyMaxLen){
+                    return description.substr(0,this.bodyMaxLen) + '...';
+                }
+                return description;            
+            }
         }
     }
 </script>
@@ -73,6 +86,13 @@ import TypeDetail from './TypeDetail.vue';
 <style lang="scss" scoped>
 .cardheight{
     height: 440px;
+}
+
+.rightabso{
+    right: 1%;
+    top: 30%;
+    width: 450px;
+    font-size: 18px;
 }
 
 img:hover {
