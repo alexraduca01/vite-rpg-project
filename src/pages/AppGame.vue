@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex flex-column justify-content-center vh-100">
-        <div class="container game-box transparent-bg text-white vh-80 p-0">
+        <div class="container transparent-bg text-white vh-100 p-0">
             <div class="d-flex justify-content-around position-relative h-70 align-items-center">
                 <div class="user-card" :class="!charFlag ? 'my-card' : ''">
                     <div v-if="charFlag" class="h-100 rounded">
@@ -106,6 +106,8 @@ import 'swiper/css/pagination';
                 fightFlag: false,
                 singleCharacter: [],
                 iaCharacter: [],
+                iaDamage: 0,
+                userDamage: 0,
             }
         },
         methods: {
@@ -154,7 +156,7 @@ import 'swiper/css/pagination';
             fight(){
                 if(this.iaCharacter.life > 0 && this.singleCharacter.life > 0){
                     let userDice = this.getRndInteger(1, 20);
-                    let userDmg = parseInt(this.singleCharacter.attack + userDice - (this.iaCharacter.defence / 2));
+                    let userDmg = parseInt(this.singleCharacter.attack + userDice - ((this.iaCharacter.defence / 2) + (this.iaCharacter.speed) ));
                     
                     if(userDmg < 0){
                         userDmg = 0;
@@ -168,6 +170,8 @@ import 'swiper/css/pagination';
                     // console.log(this.singleCharacter.life);
                     // console.log(this.iaCharacter.life);
                     console.log(userDmg, iaDmg);
+                    this.userDamage = userDmg;
+                    this.iaDamage = iaDmg;
                 } 
                 if (this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0){
                     this.iaCharacter.life = 0;
@@ -183,7 +187,7 @@ import 'swiper/css/pagination';
             },
             iaFight(){
                 let iaDice = this.getRndInteger(1, 20);
-                let iaDmg = parseInt(this.iaCharacter.attack + iaDice - (this.singleCharacter.defence / 2));
+                let iaDmg = parseInt(this.iaCharacter.attack + iaDice - ((this.singleCharacter.defence / 2) + (this.singleCharacter.speed) ));
                 if(iaDmg < 0){
                     iaDmg = 0;
                 }
@@ -219,9 +223,6 @@ import 'swiper/css/pagination';
         background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
         transform: translate(-11px, 1px);
     }
-}
-.vh-80 {
-    height: 80vh;
 }
 
 .h-70 {
@@ -267,10 +268,6 @@ import 'swiper/css/pagination';
     border-radius: 25px;
     overflow: hidden;
     user-select: none;
-}
-
-.game-box {
-    border-radius: 50px;
 }
 
 .transparent-bg {
