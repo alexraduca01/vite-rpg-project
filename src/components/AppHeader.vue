@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg p-0 bg-dark">
-    <div class="container-fluid px-0">
+  <nav class="navbar navbar-expand-lg p-0">
+    <div class="container-fluid px-0 box-shadow">
       <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
       <button
         class="me-2 navbar-toggler bg-white"
@@ -13,20 +13,31 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav bg-dark">
+      <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+        <ul class="navbar-nav">
           <li class="nav-item" v-for="item in menu">
-            <router-link :to="{ name: item.name }" class="nav-link text-white px-3" active-class="active">{{ item.label }}</router-link>
+            <router-link :to="{ name: item.name }" class="nav-link text-white px-3 scale-button">
+              <FancyButton :text="item.label" />
+            </router-link>
           </li>
         </ul>
+        <div>
+          <router-link :to="{ name: 'game' }" class="nav-link text-white px-3 scale-button">
+            <FancyButton :text="'play game'" />
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
 </template>
 
 <script>
+import FancyButton from '../components/FancyButton.vue';
     export default {
         name: "AppHeader",
+        components: {
+          FancyButton,
+        },
         data() {
             return {
                 menu: [
@@ -39,16 +50,12 @@
                         name: "characters",
                     },
                     {
-                        label: "Types",
+                        label: "Classes",
                         name: "types",
                     },
                     {
                         label: "Items",
                         name: "items",
-                    },
-                    {
-                        label: "Game",
-                        name: "game",
                     },
                 ],
             }
@@ -58,17 +65,26 @@
 
 <style lang="scss" scoped>
 
+.box-shadow {
+  box-shadow: inset 0px 0px 35px black;
+}
+
 .logo {
-  width: 60px;
+  width: 250px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  opacity: 0.75;
 }
 nav {
-    position: fixed;
-    top: 0;
-    height: 80px;
-    width: 100%;
-    z-index: 1000;
+  position: fixed;
+  top: -5px;
+  height: 80px;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: inset  0px 0px 100px rgba(0, 0, 0, 0.511);
 }
-.active {
-    color: chartreuse!important;
+.scale-button {
+  scale: 0.85;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <section class="container d-flex justify-content-center  p-5">
+    <section class="container d-flex justify-content-center vh-100 p-5">
         <div v-if="item">
             <div class="card card-bg p-5 mt-5" style="width: 23rem;">
                 <img :src="`${store.imgBasePath}${item.image}`" class="card-img-top  " alt="{{ item.name }}">  

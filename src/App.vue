@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <main class="py-3 h-100">
+  <main class="h-100">
     <router-view :key="$route.path"></router-view>
   </main>
   <AppFooter />
@@ -42,7 +42,9 @@ import axios from 'axios';
 main {
   background-image: url('../../public/img/game-bg.jpg');
   background-size: cover;
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 </style>
