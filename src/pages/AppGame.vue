@@ -162,21 +162,23 @@ import 'swiper/css/pagination';
 
                     this.iaCharacter.life = this.iaCharacter.life - userDmg;
 
-                    let iaDmg = setTimeout(() => {
-                        this.iaFight();
-                    }, 3000);
+                    let iaDmg = this.iaFight();
                     
                     this.singleCharacter.life = this.singleCharacter.life - iaDmg;
                     // console.log(this.singleCharacter.life);
                     // console.log(this.iaCharacter.life);
                     console.log(userDmg, iaDmg);
                 } 
-                if (this.iaCharacter.life <= 0){
+                if (this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0){
                     this.iaCharacter.life = 0;
-                    console.log('hai vinto');
+                    this.singleCharacter.life = 0;
+                    console.log('pareggio');
                 } else if (this.singleCharacter.life <= 0){ 
                     this.singleCharacter.life = 0;
                     console.log('hai perso');
+                } else if (this.iaCharacter.life <= 0){
+                    this.iaCharacter.life = 0;
+                    console.log('hai vinto');
                 }
             },
             iaFight(){
