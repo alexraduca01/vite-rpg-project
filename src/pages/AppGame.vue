@@ -42,8 +42,10 @@
                     </div>
                 </div>
                 <div class="play-buttons">
-                    <button v-if="fightFlag" @click="fightTimeout()" class="play rounded-pill text-uppercase">fight</button><br>
-                    <button v-if="playFlag" @click="getIaCharacter()" class="play rounded-pill text-uppercase">play</button>
+                    <FancyButton v-if="fightFlag" :text="'fight'" @click="fightTimeout()"/>
+                    <FancyButton v-if="playFlag" :text="'play'" @click="getIaCharacter()"/>
+                    <!-- <button v-if="fightFlag" @click="fightTimeout()" class="play rounded-pill text-uppercase">fight</button><br>
+                    <button v-if="playFlag" @click="getIaCharacter()" class="play rounded-pill text-uppercase">play</button> -->
                 </div>
                 <div class="my-card ia-card">
                     <div v-if="iaFlag" class="h-100 rounded">
@@ -222,7 +224,7 @@ import 'swiper/css/pagination';
             },
             fightTimeout(){
                 this.dmgFlag = false;
-                setTimeout(() => this.fight(), 2);
+                setTimeout(() => this.fight(), 1500);
             },
             iaFight(){
                 let iaDice = this.getRndInteger(1, 20);
