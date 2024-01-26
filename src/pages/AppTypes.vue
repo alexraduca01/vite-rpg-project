@@ -1,20 +1,37 @@
 <template>
-    <div class="container">
-        <div class="row m-1 justify-content-center">
-            <div class="card my-3 mx-3 cardheight col-3 rounded-0 bg-dark text-white text-center" v-for="type in types" :key="type.id">
-                <div class="card-body hidescrollbar overflow-scroll">
-                    <h2 class="text-info card-title">{{ type.name }}</h2>
-                    <p class="fontparagraph">{{ type.description }}</p>
-                    <p class="card-text">
-                        <router-link :to="{ name: 'type-detail', params: { id: type.id }}" class="btn btn-primary fs-5 mb-3">
-                            Details
-                        </router-link>
-                    </p>
+    <div class="bgsmoke">
+        <div class="container test">
+            <div class=" marginfix row">
+                <div class="d-flex bgtry justify-content-between align-items-center vh-100" >
+                    <div class="col-4">
+                        <h6 class="text-white">Game classes</h6>
+                        <div class="d-flex" v-for="type in types" :key="type.id">
+                            <div class="d-flex flex-column">
+                                <h4 class="text-uppercase namecolor fontparagraph" @click="counter = type.id - 1" :class="active(type.id - 1)">{{ type.name }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <img class="h-100" :src="store.imgBasePath + types[counter]?.image" alt="">  
+                    <!--   <p class="text-white">{{ types[counter]?.description }}</p> -->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
+// <!-- <div class="card my-3 mx-3 cardheight col-3 rounded-0 bg-dark text-white text-center" v-for="type in types" :key="type.id">
+//                 <div class="card-body hidescrollbar overflow-scroll">
+//                     <h2 class="text-info card-title">{{ type.name }}</h2>
+//                     <p class="fontparagraph">{{ type.description }}</p>
+//                     <p class="card-text">
+//                         <router-link :to="{ name: 'type-detail', params: { slug: type.slug }}" class="btn btn-primary fs-5 mb-3">
+//                             Details
+//                         </router-link>
+//                     </p>
+//                 </div>
+//             </div> -->
 
 <script>
 import {store} from '../store';
@@ -29,6 +46,7 @@ import TypeDetail from './TypeDetail.vue';
             return {
                 store,
                 types: [],
+                counter: 0
             }
         },
         methods: {
@@ -37,8 +55,16 @@ import TypeDetail from './TypeDetail.vue';
                     console.log(res.data);
                     this.types = res.data;
                 })
+            },
+            active(index){
+                if (this.counter === index) {
+                    return 'active'
+                }
+            },
+            bonus(index){
+                return this.counter = index
             }
-        },
+            },
         mounted(){
             this.getAllTypes();
         }
@@ -46,17 +72,53 @@ import TypeDetail from './TypeDetail.vue';
 </script>
 
 <style lang="scss" scoped>
-    
+
+
+.test{
+    position: relative;
+}
 .cardheight{
     height: 440px;
 }
 
 .fontparagraph{
-    font-size: 13px;
+    font-size: 35px;
 }
 
 .hidescrollbar::-webkit-scrollbar {
   display: none;
 }
 
+.namecolor{
+    color: #FBAC5C;
+}
+
+.marginfix{
+    margin-top: 80px;
+}
+
+.active{
+    color: white;
+    border-bottom: white 1px solid;
+}
+
+img{
+    width: 60%;
+    object-fit: contain;
+    position: absolute;
+    right: 10%;
+    bottom: 0;
+    top: 5%;
+}
+
+.bgtry{
+    background-image: url('https://baldursgate3.game/heros/bg.png');
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: top;
+    width: 100%;
+}
+.bgsmoke{
+    background-image: url('https://baldursgate3.game/masks/smoke.jpg');
+}
 </style>

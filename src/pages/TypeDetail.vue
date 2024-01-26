@@ -24,7 +24,7 @@ import axios from 'axios';
         methods:{
             getTypeData(){
                 console.log(this.$route);
-                axios.get(`${this.store.apiUrl}types/${this.$route.params.id}`).then((res)=>{
+                axios.get(`${this.store.apiUrl}types/${this.$route.params.slug}`).then((res)=>{
                     console.log(res.data);
                     this.type = res.data; 
                 })
