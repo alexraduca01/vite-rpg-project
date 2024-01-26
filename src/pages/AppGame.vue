@@ -88,10 +88,16 @@
             </div>
         </div>
     </div>
-    <div v-else class="vh-100 w-100 end-game pt-80">
-        <h1 v-if="this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0"> TIE </h1>
-        <h1 v-else-if="this.singleCharacter.life <= 0"> YOU LOSE </h1>
-        <h1 v-else-if="this.iaCharacter.life <= 0"> YOU WIN </h1>
+    <div v-else class="vh-100 w-100 end-game pt-80 d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <h1 class="text-uppercase text-warning big-font" v-if="this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0"> TIE </h1>
+            <h1 class="text-danger text-uppercase big-font" v-else-if="this.singleCharacter.life <= 0" > you lost </h1>
+            <h1 class="text-uppercase text-success big-font" v-else-if="this.iaCharacter.life <= 0"> YOU WIN </h1>
+        </div>
+        <div class="d-flex">
+            <FancyButton :text="'play again'" @click="reload()"/>
+            <router-link :to="{ name: 'home' }" class="nav-link text-white px-3"><FancyButton :text="'home'"/></router-link>
+        </div>
     </div>
 </template>
 
@@ -100,12 +106,14 @@ import { store } from "../store";
 import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Pagination } from 'swiper/modules';
+import FancyButton from '../components/FancyButton.vue';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
     export default {
         name: 'AppGame',
         components: {
+            FancyButton,
             Swiper,
             SwiperSlide,
         },
@@ -129,6 +137,9 @@ import 'swiper/css/pagination';
             }
         },
         methods: {
+            reload(){
+                location.reload();
+            },
             getAllCharacters(){
                 axios.get(store.apiUrl + 'characters').then((res) => {
                     console.log(res.data);
@@ -229,6 +240,11 @@ import 'swiper/css/pagination';
 </script>
 
 <style lang="scss" scoped>
+
+.big-font {
+    font-size: 120px;
+    letter-spacing: 10px;
+}
 
 .end-game{
     background-color: rgba(0, 0, 0, 0.9);
