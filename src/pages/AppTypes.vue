@@ -1,18 +1,18 @@
 <template>
-    <div class="bgsmoke h-100 position-relative">
-        <div class="container">
+    <div class="bgsmoke vh-100 position-relative d-flex align-items-center">
+        <div class="container ">
             <div class="paddingfix row">
-                <div class="d-flex bgtry justify-content-between align-items-center" >
-                    <div class="col-4">
-                        <h6 class="text-white">Game classes</h6>
-                        <div class="d-flex" v-for="type in types" :key="type.id">
-                            <div class="d-flex flex-column">
-                                <h4 class="text-uppercase namecolor fontparagraph" @click="counter = type.id - 1" :class="active(type.id - 1)">{{ type.name }}</h4>
+                <div class="d-flex bgtry justify-content-between align-items-center align-content-center" >
+                    <div class="col-4 justify-content-center ">
+                        <h6 class="text-white things">Game classes</h6>
+                        <div class="d-flex align-items-center align-content-center" v-for="type in types" :key="type.id">
+                            <div class="d-flex cursor-pointer flex-column">
+                                <h4 class="namecolor pointer fontparagraph" @click="counter = type.id - 1" :class="active(type.id - 1)">{{ type.name }}</h4>
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex">
-                        <img class="h-100 " :src="store.imgBasePath + types[counter]?.image" alt="">  
+                    <div class="d-flex try test">
+                        <img class="" :src="store.imgBasePath + types[counter]?.image" alt="">  
                     </div>
                 </div>
             </div>
@@ -75,6 +75,21 @@ import TypeDetail from './TypeDetail.vue';
     height: 440px;
 }
 
+img:hover {
+    cursor: pointer;
+    width: 720px;
+    height: 720px;
+    transition: 0.4s;
+}
+
+.test{
+    position: absolute;
+    bottom: 15%;
+    left: 55%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+
 .fontparagraph{
     font-size: 35px;
 }
@@ -84,29 +99,25 @@ import TypeDetail from './TypeDetail.vue';
 }
 
 .namecolor{
-    color: #FBAC5C;
+    color: #fbac5c;
 }
 
 .paddingfix{
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 .active{
-    color: white;
+    color: rgb(253, 255, 253);
     border-bottom: white 1px solid;
+    text-transform: uppercase;
+    font-size: 50px;
 }
 
 img{
-    width: 35%;
+    width: 690px;
     object-fit: contain;
-    position: absolute;
-    right: 10%;
-    bottom: 0;
-    top: 5%;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
+    height: 690px;
+    border-radius: 0% 0% 35% 35%;
 }
 
 .bgtry{
@@ -115,6 +126,7 @@ img{
     background-size:contain;
     background-position: top;
     width: 100%;
+    opacity: 0.9;
 }
 
 .bgsmoke{
