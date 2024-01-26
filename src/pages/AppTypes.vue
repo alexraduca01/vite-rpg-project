@@ -1,8 +1,8 @@
 <template>
-    <div class="bgsmoke">
-        <div class="container test">
-            <div class=" marginfix row">
-                <div class="d-flex bgtry justify-content-between align-items-center vh-100" >
+    <div class="bgsmoke h-100 position-relative">
+        <div class="container">
+            <div class="paddingfix row">
+                <div class="d-flex bgtry justify-content-between align-items-center" >
                     <div class="col-4">
                         <h6 class="text-white">Game classes</h6>
                         <div class="d-flex" v-for="type in types" :key="type.id">
@@ -12,8 +12,7 @@
                         </div>
                     </div>
                     <div class="d-flex">
-                        <img class="h-100" :src="store.imgBasePath + types[counter]?.image" alt="">  
-                    <!--   <p class="text-white">{{ types[counter]?.description }}</p> -->
+                        <img class="h-100 " :src="store.imgBasePath + types[counter]?.image" alt="">  
                     </div>
                 </div>
             </div>
@@ -72,11 +71,6 @@ import TypeDetail from './TypeDetail.vue';
 </script>
 
 <style lang="scss" scoped>
-
-
-.test{
-    position: relative;
-}
 .cardheight{
     height: 440px;
 }
@@ -93,8 +87,8 @@ import TypeDetail from './TypeDetail.vue';
     color: #FBAC5C;
 }
 
-.marginfix{
-    margin-top: 80px;
+.paddingfix{
+    padding-top: 80px;
 }
 
 .active{
@@ -103,12 +97,16 @@ import TypeDetail from './TypeDetail.vue';
 }
 
 img{
-    width: 60%;
+    width: 35%;
     object-fit: contain;
     position: absolute;
     right: 10%;
     bottom: 0;
     top: 5%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    filter: drop-shadow(10px 10px 10px rgb(0, 0, 0));
 }
 
 .bgtry{
@@ -118,7 +116,10 @@ img{
     background-position: top;
     width: 100%;
 }
+
 .bgsmoke{
+    background-attachment: fixed;
+    background-size: cover;
     background-image: url('https://baldursgate3.game/masks/smoke.jpg');
 }
 </style>
