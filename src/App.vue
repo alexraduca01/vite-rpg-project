@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <main>
+  <main class="py-3 h-100">
     <router-view :key="$route.path"></router-view>
   </main>
   <AppFooter />
