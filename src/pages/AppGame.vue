@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-column justify-content-center vh-100">
+    <div v-if="!endGame" class="d-flex flex-column justify-content-center vh-100">
         <div class="container transparent-bg text-white vh-100 p-0">
             <div class="d-flex justify-content-around position-relative h-70 align-items-center">
                 <div class="user-card" :class="!charFlag ? 'my-card' : ''">
@@ -31,9 +31,21 @@
                         </div>
                     </div>
                 </div>
+                <div class="logs d-flex justify-content-around" :class="dmgFlag ? 'opacity-100' : 'opacity-0'">
+                    <div>
+                        <span class="text-success fs-3" v-if="iaDamage == 0">MISS !!</span>
+                        <span class="text-danger fs-3" v-else-if="iaDamage > 0">Subito: {{ iaDamage }} </span>
+                    </div>
+                    <div>
+                        <span class="text-danger fs-3" v-if="userDamage == 0">MISS !!</span>
+                        <span class="text-danger fs-3" v-else-if="userDamage > 0">Inflitto: {{ userDamage }}</span>
+                    </div>
+                </div>
                 <div class="play-buttons">
-                    <button v-if="fightFlag" @click="fight()" class="play rounded-pill text-uppercase">fight</button><br>
-                    <button v-if="playFlag" @click="getIaCharacter()" class="play rounded-pill text-uppercase">play</button>
+                    <FancyButton v-if="fightFlag" :text="'fight'" @click="fightTimeout()"/>
+                    <FancyButton v-if="playFlag" :text="'play'" @click="getIaCharacter()"/>
+                    <!-- <button v-if="fightFlag" @click="fightTimeout()" class="play rounded-pill text-uppercase">fight</button><br>
+                    <button v-if="playFlag" @click="getIaCharacter()" class="play rounded-pill text-uppercase">play</button> -->
                 </div>
                 <div class="my-card ia-card">
                     <div v-if="iaFlag" class="h-100 rounded">
@@ -78,6 +90,17 @@
             </div>
         </div>
     </div>
+    <div v-else class="vh-100 w-100 end-game pt-80 d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <h1 class="text-uppercase text-warning big-font" v-if="this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0"> TIE </h1>
+            <h1 class="text-danger text-uppercase big-font" v-else-if="this.singleCharacter.life <= 0" > you lost </h1>
+            <h1 class="text-uppercase text-success big-font" v-else-if="this.iaCharacter.life <= 0"> YOU WIN </h1>
+        </div>
+        <div class="d-flex">
+            <FancyButton :text="'play again'" @click="reload()"/>
+            <router-link :to="{ name: 'home' }" class="nav-link text-white px-3"><FancyButton :text="'home'"/></router-link>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -85,12 +108,14 @@ import { store } from "../store";
 import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { FreeMode, Pagination } from 'swiper/modules';
+import FancyButton from '../components/FancyButton.vue';
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
     export default {
         name: 'AppGame',
         components: {
+            FancyButton,
             Swiper,
             SwiperSlide,
         },
@@ -108,9 +133,15 @@ import 'swiper/css/pagination';
                 iaCharacter: [],
                 iaDamage: 0,
                 userDamage: 0,
+                dmgFlag: false,
+                dice: 0,
+                endGame: false,
             }
         },
         methods: {
+            reload(){
+                location.reload();
+            },
             getAllCharacters(){
                 axios.get(store.apiUrl + 'characters').then((res) => {
                     console.log(res.data);
@@ -156,7 +187,8 @@ import 'swiper/css/pagination';
             fight(){
                 if(this.iaCharacter.life > 0 && this.singleCharacter.life > 0){
                     let userDice = this.getRndInteger(1, 20);
-                    let userDmg = parseInt(this.singleCharacter.attack + userDice - ((this.iaCharacter.defence / 2) + (this.iaCharacter.speed) ));
+                    this.dice = userDice;
+                    let userDmg = parseInt(this.singleCharacter.attack + userDice - ((this.iaCharacter.defence / 2) + (this.iaCharacter.speed / 2) ));
                     
                     if(userDmg < 0){
                         userDmg = 0;
@@ -169,25 +201,34 @@ import 'swiper/css/pagination';
                     this.singleCharacter.life = this.singleCharacter.life - iaDmg;
                     // console.log(this.singleCharacter.life);
                     // console.log(this.iaCharacter.life);
-                    console.log(userDmg, iaDmg);
+                    // console.log(userDmg, iaDmg);
                     this.userDamage = userDmg;
                     this.iaDamage = iaDmg;
-                } 
+                }
+                this.dmgFlag = true;
                 if (this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0){
                     this.iaCharacter.life = 0;
                     this.singleCharacter.life = 0;
-                    console.log('pareggio');
+                    this.endGame = true;
+                    // console.log('pareggio');
                 } else if (this.singleCharacter.life <= 0){ 
                     this.singleCharacter.life = 0;
-                    console.log('hai perso');
+                    this.endGame = true;
+                    // console.log('hai perso');
                 } else if (this.iaCharacter.life <= 0){
                     this.iaCharacter.life = 0;
-                    console.log('hai vinto');
+                    this.endGame = true;
+                    // console.log('hai vinto');
                 }
+                
+            },
+            fightTimeout(){
+                this.dmgFlag = false;
+                setTimeout(() => this.fight(), 1500);
             },
             iaFight(){
                 let iaDice = this.getRndInteger(1, 20);
-                let iaDmg = parseInt(this.iaCharacter.attack + iaDice - ((this.singleCharacter.defence / 2) + (this.singleCharacter.speed) ));
+                let iaDmg = parseInt(this.iaCharacter.attack + iaDice - ((this.singleCharacter.defence / 2) + (this.singleCharacter.speed / 2) ));
                 if(iaDmg < 0){
                     iaDmg = 0;
                 }
@@ -202,6 +243,24 @@ import 'swiper/css/pagination';
 
 <style lang="scss" scoped>
 
+.big-font {
+    font-size: 120px;
+    letter-spacing: 10px;
+}
+
+.end-game{
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.pt-80 {
+    padding-top: 80px;
+}
+.logs {
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    transition: opacity 0.5s ease-out;
+}
 .play {
     background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);
     padding: 10px 20px;
