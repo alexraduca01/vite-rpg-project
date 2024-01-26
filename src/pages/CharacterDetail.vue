@@ -1,5 +1,5 @@
 <template>
-    <div class="container pt-80 text-white">
+    <div class="container pt-80 text-white vh-100">
         <h1 class="text-center">{{ character.name }}</h1>
         <div class="row">
             <div class="d-flex">

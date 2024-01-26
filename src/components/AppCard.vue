@@ -1,50 +1,32 @@
 <template>
   <!-- Characters Card -->
-  <div class="flip-card-3D-wrapper pt-80">
-    <div class="flip-card">
-      <div class="flip-card-front">
-        <div class='card-img'>
-          <img :src="store.imgBasePath + character.image" :alt="character.name">
+  <div class="card-container">
+
+    <div class="card-background">
+
+      <div class="card-frame">
+
+        <div class="frame-header">
+          <h1 class="name">{{ character.name }}</h1>
         </div>
-        <div class='card-body'>
-          <h4 class="text-center text-dark">{{ character.name }}</h4>
-          <p class="text-dark px-3">{{ character.description }}</p>
-          <div class="d-flex justify-content-center">
-            <button><router-link :to="{ name: 'character-detail', params: { slug: character.slug } }">View
-                More</router-link></button>
-          </div>
-          <button class="flip-card-btn-turn-to-back" @click="flipAllCardsToFront(), setAttackValue(character.attack), setDefenseValue(character.defence), setLifeValue(character.life), setSpeedValue(character.speed)">Stats</button>
+
+        <img :src="store.imgBasePath + character.image" :alt="character.name" class="frame-art object-fit-cover">
+
+        <div class="frame-type-line">
+          <h1 class="type">{{ character.type?.name }}</h1>
+          <!-- Here goes the set icon -->
         </div>
+
+        <div class="frame-text-box">
+
+          <p class="description ftb-inner-margin">{{ character.description }}</p>
+
+        </div>
+
       </div>
-      <div class="flip-card-back">
-        <div class='card-body'>
-          <h4 class="text-center text-dark">Stats</h4>
-          <ul class="list-unstyled text-dark">
-            <li>Attack: {{ character.attack }}
-              <div class="bar-container">
-                <div class="attack-bar"></div>
-              </div>
-            </li>
-            <li>Defense: {{ character.defence }}
-              <div class="bar-container">
-                <div class="defense-bar"></div>
-              </div>
-            </li>
-            <li>Health: {{ character.life }}
-              <div class="bar-container">
-                <div class="life-bar"></div>
-              </div>
-            </li>
-            <li>Speed: {{ character.speed }}
-              <div class="bar-container">
-                <div class="speed-bar"></div>
-              </div>
-            </li>
-          </ul>
-          <button class="flip-card-btn-turn-to-front text-dark">Return</button>
-        </div>
-      </div>
+
     </div>
+
   </div>
 </template>
 
@@ -233,5 +215,94 @@ export default {
 
 .pt-80 {
   padding-top: 80px;
+}
+.frame-header, .frame-type-line {
+ border-bottom: 4px solid #a9a9a9;
+ border-left: 2px solid #a9a9a9;
+ border-top: 1px solid #fff;
+ border-right: 1px solid #fff;
+}
+.frame-header, .frame-art, .frame-type-line {
+ box-shadow: 
+ 0 0 0 2px #171314,
+ 0 0 0 5px #26714A,
+ -3px 3px 2px 5px #171314;
+margin-bottom: 7px;
+}
+.frame-text-box {
+ box-shadow: 
+ 0 0 0 5px #26714A,
+ -3px 3px 2px 5px #171314;
+ margin-top: 1px;
+ background: 
+ linear-gradient( 0deg, rgba(201, 216, 201, .3), rgba(201, 216, 209, .3) ), 
+ url(https://image.ibb.co/jKByZn/tile_bg_1.jpg); 
+ width: 330px;
+ margin-left: 12px;
+}
+.frame-header, .frame-type-line, .frame-text-box {
+ overflow: hidden;
+}
+.frame-header, .frame-type-line {
+ background: 
+ linear-gradient( 0deg, rgba(201, 216, 201, .3), rgba(201, 216, 209, .3) ), 
+ url(https://image.ibb.co/jKByZn/tile_bg_1.jpg); 
+ display: flex;
+ margin-top: 10px;
+ margin-left: 5px;
+ margin-right: 5px;
+ padding: 8px 0;
+ display: flex;
+ justify-content: space-between;
+ border-radius: 18px/40px;
+ margin-left: 12px;
+}
+.name, .type {
+ font-size: 1.3em;
+ margin-left: 10px;
+ align-self: baseline;
+ font-weight: 600;
+}
+.frame-art {
+ height: 50%; 
+ margin: 0 10px;
+ object-position: 0px 0px;
+ margin-left: 18px;
+}
+.card-background {
+ background-image: url(https://static.vecteezy.com/system/resources/previews/004/288/142/non_2x/geometric-lines-pattern-on-black-background-free-vector.jpg);
+ background-position: center;
+}
+.card-container {
+ border: 1px solid black;
+ width: 400px;
+ height: 590px;
+ margin: 0 auto;
+ margin-top: 100px;
+ border-radius: 25px;
+ box-sizing: border-box;
+ box-shadow: -8px 9px 16px -3px black;
+ background: #171314; 
+}
+.card-background {
+ height: 550px;
+ margin: 20px 20px 0 20px;
+ border-top-left-radius: 6px;
+ border-top-right-radius: 6px;
+ border-bottom-left-radius: 8%;
+ border-bottom-right-radius: 8%;
+ background-color: #bbb;
+ z-index: 0;
+}
+.card-frame {
+ z-index: 1;
+ position: relative;
+ height: 108%;
+ max-width: 97%;
+ left: 1%;
+ top: 0.5%;
+ left: 1.2%;
+ display: flex;
+ flex-direction: column;
 }
 </style>
