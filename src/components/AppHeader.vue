@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg p-0">
-    <div class="container-fluid px-0 box-shadow">
+  <nav class="navbar navbar-expand-lg pt-4">
+    <div class="container-fluid box-shadow">
       <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
       <button
         class="me-2 navbar-toggler bg-white"
