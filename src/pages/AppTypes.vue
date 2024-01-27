@@ -88,6 +88,10 @@ import TypeDetail from './TypeDetail.vue';
     height: 440px;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .rightabso{
     right: 1%;
     top: 30%;

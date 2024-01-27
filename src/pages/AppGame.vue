@@ -249,7 +249,9 @@ import 'swiper/css/pagination';
 }
 
 .end-game{
+    position: relative;
     background-color: rgba(0, 0, 0, 0.9);
+    z-index: 50000;
 }
 
 .pt-80 {
