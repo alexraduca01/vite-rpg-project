@@ -21,11 +21,6 @@
             </router-link>
           </li>
         </ul>
-        <div>
-          <router-link :to="{ name: 'game' }" class="nav-link text-white px-3 scale-button">
-            <FancyButton :text="'play game'" />
-          </router-link>
-        </div>
       </div>
     </div>
   </nav>

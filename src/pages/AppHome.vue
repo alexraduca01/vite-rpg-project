@@ -4,8 +4,10 @@
             <video class="w-100 back-video" src="/videos/elden-ring.mp4" autoplay muted loop></video>
             <div class="absolutecenter text-white">
                 <h1 class="titlefs" style="z-index: 5;">Boolean's Legacy</h1>
-                <p class="fs-2 py-4 text-center">Try our game</p>
-                <FancyButton :text="'Game Details'" class="text-center"/>
+                <p class="fs-1 py-4 text-center">Try our game</p>
+                <router-link :to="{ name: 'game' }" class="text-center">
+                    <FancyButton :text="'play now'" />
+                </router-link>
             </div>
         </div>
         <div class="py-5 mt-5 w-100">
