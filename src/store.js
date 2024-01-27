@@ -23,4 +23,24 @@ export const store = reactive ({
             desc: " The Witcher 3: Wild Hunt is an action role-playing game developed by CD Projekt. Released in 2015, it is the third installment in The Witcher series, based on the novels by Andrzej Sapkowski. Set in a dark fantasy world, players control Geralt of Rivia, a monster hunter known as a Witcher. The game features an expansive open world filled with diverse landscapes, cities, and villages. Players embark on a quest to find Geralt's adopted daughter, Ciri, while navigating a complex narrative with moral choices that impact the story."
         },
     ],
+    miniLogos: [
+        {
+            url: '/public/img/elden-ring.png',
+        },
+        {
+            url: '/public/img/diablo.png',
+        },
+        {
+            url: '/public/img/larian.png',
+        },
+        {
+            url: '/public/img/oblivion.png',
+        },
+        {
+            url: '/public/img/tesv.png',
+        },
+        {
+            url: '/public/img/wow.png',
+        },
+    ]
 })

@@ -64,17 +64,37 @@
             <h1>Nessuna rinascita, nessun rimpianto!</h1>
             <p class="fs-5 p-4">Affronta i pericoli di Azeroth nei reami Hardcore di Boolean e scopri quanto lontano riesci ad arrivare. Hai solo una vita da vivere. Se morirai, non ci sarà nessuno Spirit Healer a rimandarti nel mondo dei vivi</p>
         </div>
+        <div class="w-100 bgdark">
+            <div class="container p-5">
+                <h3 class="text-white text-center py-5">Our Partners</h3>
+                <swiper :spaceBetween="30" :slidesPerView="3" :centeredSlides="true" :autoplay="{ delay: 2500, disableOnInteraction: false, }" :loop="true" :modules="modules" class="mySwiper">
+                    <swiper-slide class="d-flex justify-content-center align-items-center" v-for="item in store.miniLogos">
+                        <img style="height: 150px;" :src="item.url" alt="">
+                    </swiper-slide>
+                </swiper>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import { store } from '../store'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+    
     export default {
         name: 'AppHome',
-        
+        components: {
+            Swiper,
+            SwiperSlide,
+        },
         data() {
             return {
                 store,
+                modules: [Autoplay, Pagination, Navigation],
             }
         },
         methods: {
@@ -149,5 +169,8 @@ h4 {
     margin-right: -100px;
     background-color: #c19d53;
     z-index: 3;
+}
+.bgdark {
+    background-color: rgba(0, 0, 0, 0.303);
 }
 </style>
