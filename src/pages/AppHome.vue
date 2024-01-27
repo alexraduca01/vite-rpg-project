@@ -1,7 +1,12 @@
 <template>
     <div class="h-100 bgsmoke">
-        <div class="w-100" style="height: 1430px;">
+        <div class="w-100 position-relative" style="height: 1430px;">
             <video class="w-100 back-video" src="/videos/elden-ring.mp4" autoplay muted loop></video>
+            <div class="absolutecenter text-white">
+                <h1 class="titlefs" style="z-index: 5;">Boolean's Legacy</h1>
+                <p class="fs-2 py-4 text-center">Try our game</p>
+                <FancyButton :text="'Game Details'" class="text-center"/>
+            </div>
         </div>
         <div class="py-5 mt-5 w-100">
             <div class="container">
@@ -80,6 +85,7 @@
 
 <script>
 import { store } from '../store'
+import FancyButton from '../components/FancyButton.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import AppFooter from '../components/AppFooter.vue';
 import 'swiper/css';
@@ -90,6 +96,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
     export default {
         name: 'AppHome',
         components: {
+            FancyButton,
             Swiper,
             SwiperSlide,
             AppFooter,
@@ -115,11 +122,19 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 .lh {
     line-height: 1.8;
 }
+.absolutecenter{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.titlefs{
+    font-size: 80px;
+}
 .test{
     border-top: 3px solid #553c229a;
     border-bottom: 3px solid #553c229a;
 }
-
 .bgsectionhome{
     background-size: cover;
     background-image: url('/public/img/sectionhome.jpg');
@@ -129,27 +144,22 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 .goldcolor{
     color: #553C22;
 }
-
 .w-65 {
     width: 65%;
 }
-
 .back-video {
     position: absolute;
     top: 0;
     left: 0;
 }
-
 .frame{
     position: absolute;
     width: 842px;
     z-index: 1;
 }
-
 .frame1 {
     right: 0;
 }
-
 .frame2 {
     position: absolute;
     width: 1205px;
@@ -164,7 +174,6 @@ h2 {
     background-color: #c19d53;
     z-index: 3;
 }
-
 h4 {
     display: inline-block;
     position: relative;
