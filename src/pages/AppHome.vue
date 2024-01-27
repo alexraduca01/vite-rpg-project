@@ -16,7 +16,7 @@
                     <div class="text-white d-flex flex-column justify-content-center">
                         <div>
                             <h2 class="fs-4">{{ store.videos[0].name }}</h2>
-                            <p>{{ store.videos[0].desc }}</p>
+                            <p class="lh">{{ store.videos[0].desc }}</p>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                     <div class="text-white d-flex flex-column justify-content-center">
                         <div class="text-end">
                             <h4>{{ store.videos[1].name }}</h4>
-                            <p>{{ store.videos[1].desc }}</p>
+                            <p class="lh">{{ store.videos[1].desc }}</p>
                         </div>
                     </div>
                     <video class="w-65" autoplay loop muted>
@@ -40,7 +40,7 @@
                     <div class="text-white d-flex flex-column justify-content-center">
                         <div>
                             <h2 class="fs-4">{{ store.videos[2].name }}</h2>
-                            <p>{{ store.videos[2].desc }}</p>
+                            <p class="lh">{{ store.videos[2].desc }}</p>
                         </div>
                     </div>
                 </div>
@@ -68,18 +68,20 @@
             <div class="container p-5">
                 <h3 class="text-white text-center py-5">Our Partners</h3>
                 <swiper :spaceBetween="30" :slidesPerView="3" :centeredSlides="true" :autoplay="{ delay: 2500, disableOnInteraction: false, }" :loop="true" :modules="modules" class="mySwiper">
-                    <swiper-slide class="d-flex justify-content-center align-items-center" v-for="item in store.miniLogos">
-                        <img style="height: 150px;" :src="item.url" alt="">
+                    <swiper-slide class="d-flex justify-content-center align-items-center pb-5" v-for="item in store.miniLogos">
+                        <img style="height: 150px; cursor: grab;" :src="item.url" alt="">
                     </swiper-slide>
                 </swiper>
             </div>
         </div>
+        <AppFooter />
     </div>
 </template>
 
 <script>
 import { store } from '../store'
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import AppFooter from '../components/AppFooter.vue';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -90,6 +92,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
         components: {
             Swiper,
             SwiperSlide,
+            AppFooter,
         },
         data() {
             return {
@@ -109,7 +112,9 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 </script>
 
 <style lang="scss" scoped>
-
+.lh {
+    line-height: 1.8;
+}
 .test{
     border-top: 3px solid #553c229a;
     border-bottom: 3px solid #553c229a;

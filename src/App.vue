@@ -3,7 +3,6 @@
   <main class="h-100 bgsmoke">
     <router-view :key="$route.path"></router-view>
   </main>
-  <AppFooter />
 </template>
 
 <script>
@@ -16,7 +15,6 @@ import axios from 'axios';
     name: 'App',
     components: {
       AppHeader,
-      AppFooter,
       AppCard,
     },
     data(){
