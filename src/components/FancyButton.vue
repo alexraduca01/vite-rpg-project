@@ -208,7 +208,6 @@ button .label {
   -webkit-clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 13px, 100% calc(100% - 13px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 13px), 0 13px);
           clip-path: polygon(12px 0, calc(100% - 12px) 0, 100% 13px, 100% calc(100% - 13px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 13px), 0 13px);
   color: #fff;
-  font-family: "Cormorant Garamond", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 16px;

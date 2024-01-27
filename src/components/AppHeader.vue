@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg p-0">
-    <div class="container-fluid px-0 box-shadow">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid box-shadow">
       <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
       <button
         class="me-2 navbar-toggler bg-white"
@@ -21,11 +21,6 @@
             </router-link>
           </li>
         </ul>
-        <div>
-          <router-link :to="{ name: 'game' }" class="nav-link text-white px-3 scale-button">
-            <FancyButton :text="'play game'" />
-          </router-link>
-        </div>
       </div>
     </div>
   </nav>
@@ -70,11 +65,10 @@ import FancyButton from '../components/FancyButton.vue';
 }
 
 .logo {
-  width: 250px;
+  width: 125px;
   position: fixed;
   top: 80px;
-  left: 0;
-  opacity: 0.75;
+  right: 40px;
 }
 nav {
   position: fixed;

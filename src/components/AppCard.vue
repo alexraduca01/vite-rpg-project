@@ -19,7 +19,7 @@
 
         <div class="frame-text-box">
 
-          <p class="description ftb-inner-margin">{{ character.description }}</p>
+          <p class="description ftb-inner-margin my-fs">{{ character.description.substr(0, 100) + '...'  }}</p>
 
         </div>
 
@@ -304,5 +304,9 @@ margin-bottom: 7px;
  left: 1.2%;
  display: flex;
  flex-direction: column;
+}
+
+.my-fs {
+  font-size: 14px;
 }
 </style>

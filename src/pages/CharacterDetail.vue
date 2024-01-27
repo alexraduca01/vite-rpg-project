@@ -12,7 +12,7 @@
 
                     <div>
                         <h3>Class</h3>
-                        <h6>{{ character.type?.name }}</h6>
+                        <img :src="store.imgBasePath + character.type?.icon" :alt="character.type?.name">
                     </div>
 
                     <div>
