@@ -24,18 +24,6 @@
     </div>
 </template>
 
-// <!-- <div class="card my-3 mx-3 cardheight col-3 rounded-0 bg-dark text-white text-center" v-for="type in types" :key="type.id">
-//                 <div class="card-body hidescrollbar overflow-scroll">
-//                     <h2 class="text-info card-title">{{ type.name }}</h2>
-//                     <p class="fontparagraph">{{ type.description }}</p>
-//                     <p class="card-text">
-//                         <router-link :to="{ name: 'type-detail', params: { slug: type.slug }}" class="btn btn-primary fs-5 mb-3">
-//                             Details
-//                         </router-link>
-//                     </p>
-//                 </div>
-//             </div> -->
-
 <script>
 import {store} from '../store';
 import axios from 'axios';

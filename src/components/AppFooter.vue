@@ -1,6 +1,6 @@
 <template>
     <footer class=" text-center">
-      <div class="container p-4">
+      <div class="container p-4 py-5">
         <section class="mb-4">
           <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
             ><i class="fab fa-facebook-f"></i
@@ -89,7 +89,7 @@ import axios from "axios";
 <style lang="scss" scoped>
 
 footer{
-    background-color: #0B121C;
+    background-color: #0b121c78;
     font-family: "QuadraatOffcPro Regular", sans-serif;
 }
 
