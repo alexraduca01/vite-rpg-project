@@ -70,11 +70,10 @@ import FancyButton from '../components/FancyButton.vue';
 }
 
 .logo {
-  width: 250px;
+  width: 125px;
   position: fixed;
   top: 80px;
-  left: 0;
-  opacity: 0.75;
+  left: 40px;
 }
 nav {
   position: fixed;
