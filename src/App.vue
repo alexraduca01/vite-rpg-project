@@ -1,6 +1,6 @@
 <template>
   <AppHeader />
-  <main class="h-100">
+  <main class="h-100 bgsmoke">
     <router-view :key="$route.path"></router-view>
   </main>
   <AppFooter />
@@ -39,12 +39,10 @@ import axios from 'axios';
 
 <style lang="scss" scoped>
 
-main {
-  background-image: url('../../public/img/game-bg.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
+.bgsmoke{
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('https://baldursgate3.game/masks/smoke.jpg');
 }
 
 </style>

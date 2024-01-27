@@ -73,7 +73,7 @@ import FancyButton from '../components/FancyButton.vue';
   width: 125px;
   position: fixed;
   top: 80px;
-  left: 40px;
+  right: 40px;
 }
 nav {
   position: fixed;

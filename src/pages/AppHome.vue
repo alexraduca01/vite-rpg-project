@@ -3,7 +3,7 @@
         <div class="w-100" style="height: 1430px;">
             <video class="w-100 back-video" src="/videos/elden-ring.mp4" autoplay muted loop></video>
         </div>
-        <div class="py-5 w-100">
+        <div class="py-5 mt-5 w-100">
             <div class="container">
                 <div>
                     <h6 class="text-white fs-2">I nostri <span class="fs-1">10/10</span></h6>
@@ -46,22 +46,23 @@
                 </div>
             </div>
         </div>
-        <div class="text-white bgsmoke d-flex align-items-center ">
-            <div class="fs-5 w-50 p-3 m-5 test">
+        <div class="text-white bgsmoke d-flex align-items-center gap-5 my-5 justify-content-between py-5">
+            <div class="fs-5 w-50 p-3 py-5 test">
                 <p>About Us</p>
                 <h1>About Booleans Legacy</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aliquam blanditiis, recusandae nihil eveniet iste voluptatum tempore sit, odit sequi veritatis similique corrupti hic consequatur consectetur officiis deserunt magnam in!</p> 
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere voluptatibus officia ducimus consectetur itaque nam illum aspernatur velit vitae, ratione minima animi laudantium esse porro expedita optio asperiores veritatis. Eligendi nam vitae, nihil eveniet maiores rerum, perferendis laudantium rem est officia blanditiis ipsam reiciendis ad natus aspernatur in, obcaecati quisquam!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quisquam repudiandae, sequi laboriosam cumque voluptatem similique nam eveniet ut recusandae ipsum dolores minus error illo culpa nihil praesentium dicta ea. Consequuntur veritatis excepturi laudantium aut. Delectus odit consequatur nisi natus, exercitationem fuga beatae placeat laborum nihil expedita quas voluptatem aut nam, numquam, tempora eius doloremque neque pariatur libero voluptatibus quisquam?</p>
+                <p>Sotto il cielo stellato, eroi silenziosi sfidano l'oscurità, forgiando destini con coraggio, mentre il destino tessitore sorride.</p> 
+                <p>Nell'epica danza della vita, i valorosi affrontano le tempeste, le passioni ardono come fuoco eterno. Tra le pagine dell'eternità, il destino intreccia le storie, creando leggende incancellabili nel cuore del tempo.</p>
+                <p>Sotto cieli immensi e stelle scintillanti, eroi emergono dall'ombra dell'ignoto, con cuori ardenti di speranza. Attraverso il labirinto del destino, sfidano il fato, intrecciando leggende eteree che risuonano nei secoli, come canti immortali nel tessuto dell'universo.</p>
             </div>
-            <div class="w-75 m-5">
-                <img class=" w-100 h-100 shadow-sm circlebig" src="https://wallpapers.com/images/hd/elden-ring-background-giq5p36lqqu12rnj.jpg" alt="">
+            <div class="w-50 pe-5">
+                <img src="/public/img/cornice.png" class="frame2" alt="">
+                <img class="w-100 shadow-sm" src="https://wallpapers.com/images/hd/elden-ring-background-giq5p36lqqu12rnj.jpg" alt="">
             </div>
         </div>
         <div class="text-white bgsectionhome d-flex flex-column justify-content-center align-items-center">
             <p>Booleans Legacy</p>
             <h1>Nessuna rinascita, nessun rimpianto!</h1>
-            <p class="fs-5 p-4">Affronta i pericoli di Azeroth nei reami Hardcore di WoW Classic e scopri quanto lontano riesci ad arrivare. Hai solo una vita da vivere. Se morirai, non ci sarà nessuno Spirit Healer a rimandarti nel mondo dei vivi</p>
+            <p class="fs-5 p-4">Affronta i pericoli di Azeroth nei reami Hardcore di Boolean e scopri quanto lontano riesci ad arrivare. Hai solo una vita da vivere. Se morirai, non ci sarà nessuno Spirit Healer a rimandarti nel mondo dei vivi</p>
         </div>
     </div>
 </template>
@@ -90,8 +91,8 @@ import { store } from '../store'
 <style lang="scss" scoped>
 
 .test{
-    border-top: 5px solid #553c229a;
-    border-bottom: 5px solid #553c229a;
+    border-top: 3px solid #553c229a;
+    border-bottom: 3px solid #553c229a;
 }
 
 .bgsectionhome{
@@ -106,12 +107,6 @@ import { store } from '../store'
 
 .w-65 {
     width: 65%;
-}
-
-.bgsmoke{
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url('https://baldursgate3.game/masks/smoke.jpg');
 }
 
 .back-video {
@@ -130,6 +125,10 @@ import { store } from '../store'
     right: 0;
 }
 
+.frame2 {
+    position: absolute;
+    width: 1205px;
+}
 h2 {
     display: inline-block;
     position: relative;
