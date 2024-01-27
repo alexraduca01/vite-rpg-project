@@ -33,12 +33,12 @@
                 </div>
                 <div class="logs d-flex justify-content-around" :class="dmgFlag ? 'opacity-100' : 'opacity-0'">
                     <div>
-                        <span class="text-success fs-3" v-if="iaDamage == 0">MISS !!</span>
-                        <span class="text-danger fs-3" v-else-if="iaDamage > 0">Subito: {{ iaDamage }} </span>
+                        <span class="text-success fs-3 fantasy-btn-xl" v-if="iaDamage == 0">MISS !!</span>
+                        <span class="text-danger fs-3 fantasy-btn-xl" v-else-if="iaDamage > 0">Subito: {{ iaDamage }} </span>
                     </div>
                     <div>
-                        <span class="text-danger fs-3" v-if="userDamage == 0">MISS !!</span>
-                        <span class="text-danger fs-3" v-else-if="userDamage > 0">Inflitto: {{ userDamage }}</span>
+                        <span class="text-danger fs-3 fantasy-btn-xl" v-if="userDamage == 0">MISS !!</span>
+                        <span class="text-danger fs-3 fantasy-btn-xl" v-else-if="userDamage > 0">Inflitto: {{ userDamage }}</span>
                     </div>
                 </div>
                 <div class="play-buttons">
@@ -209,15 +209,18 @@ import 'swiper/css/pagination';
                 if (this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0){
                     this.iaCharacter.life = 0;
                     this.singleCharacter.life = 0;
-                    this.endGame = true;
+                    setTimeout(() => this.endGame = true, 1500);
+                    // this.endGame = true;
                     // console.log('pareggio');
                 } else if (this.singleCharacter.life <= 0){ 
                     this.singleCharacter.life = 0;
-                    this.endGame = true;
+                    setTimeout(() => this.endGame = true, 1500);
+                    // this.endGame = true;
                     // console.log('hai perso');
                 } else if (this.iaCharacter.life <= 0){
                     this.iaCharacter.life = 0;
-                    this.endGame = true;
+                    setTimeout(() => this.endGame = true, 1500);
+                    // this.endGame = true;
                     // console.log('hai vinto');
                 }
                 
@@ -259,7 +262,7 @@ import 'swiper/css/pagination';
 }
 .logs {
     position: absolute;
-    top: 20%;
+    top: 18%;
     width: 100%;
     transition: opacity 0.5s ease-out;
 }
@@ -321,10 +324,6 @@ import 'swiper/css/pagination';
     }
 }
 
-.debug {
-    border: 1px solid white;
-}
-
 .char-box {
     border-radius: 25px;
     overflow: hidden;
@@ -339,11 +338,198 @@ import 'swiper/css/pagination';
     border-radius: 50px;
 }
 
-.transparent-bg {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
 .cursor-pointer {
     cursor: pointer;
 }
+
+@layer fantasy-btn {
+  [class*="fantasy-btn"] {
+    isolation: isolate;
+    position: relative;
+    box-sizing: border-box;
+    background: transparent;
+    outline: none;
+    border: none;
+    --s: (var(--scale) / 4.5);
+    font-size: calc(60px * var(--s));
+    font-family: serif;
+    min-width: calc(280px * var(--s));
+    min-height: calc(200px * var(--s));
+    padding-inline: calc(95px * var(--s));
+    padding-block: calc(51px * var(--s));
+  }
+  .fantasy-btn-xl { --scale: 1.5; }
+  
+  
+
+  [class*="fantasy-btn"]::after {
+    --_border-base-opacity: var(--border-opacity, 1);
+    --_border-hover-opacity: var(--border-hover-opacity,
+      var(--_border-base-opacity)
+    );
+    --_border-focus-opacity: var(--border-focus-opacity,
+      var(--_border-hover-opacity)
+    );
+    --_border-active-opacity: var(--border-active-opacity,
+      var(--_border-focus-opacity)
+    );
+    --_border-state-opacity: var(--_border-base-opacity);
+
+    --_border-base-bg: var(--border-bg, currentColor);
+    --_border-hover-bg: var(--border-hover-bg, var(--_border-base-bg));
+    --_border-focus-bg: var(--border-focus-bg, var(--_border-hover-bg));
+    --_border-active-bg: var(--border-active-bg, var(--_border-focus-bg));
+
+    --_border-state-bg: var(--_border-base-bg);
+  }
+
+  [class*="fantasy-btn"]::before,
+  [class*="fantasy-btn"]::after {
+    content: "";
+    position: absolute;
+    inset: 0px;
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  [class*="fantasy-btn"]::after {
+    background: var(--_border-state-bg);
+    opacity: var(--_border-state-opacity);
+    clip-path: polygon(
+      /* home */
+      calc(37px * var(--s)) calc(44px * var(--s)),
+      /* jump union point */
+      calc(52px * var(--s)) calc(29px * var(--s)),
+      calc(61px * var(--s)) calc(18px * var(--s)),
+      calc(82.5px * var(--s)) calc(39.5px * var(--s)),
+      calc(61px * var(--s)) calc(61px * var(--s)),
+      0px 0px,
+      calc(77px * var(--s)) 0px,
+      calc(90px * var(--s)) calc(13px * var(--s)),
+      calc(103px * var(--s)) 0px,
+
+      calc(100% - 103px * var(--s)) 0px,
+      calc(100% - 90px * var(--s)) calc(13px * var(--s)),
+      calc(100% - 77px * var(--s)) 0px,
+      100% 0px,
+      calc(100% - 61px * var(--s)) calc(61px * var(--s)),
+      calc(100% - 82.5px * var(--s)) calc(39.5px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(18px * var(--s)),
+
+      /*... -x union point, jump ...*/
+      calc(100% - 52px * var(--s)) calc(29px * var(--s)),
+      calc(100% - 37px * var(--s)) calc(44px * var(--s)),
+
+      calc(100% - 24.5px * var(--s)) calc(56.5px * var(--s)),
+      calc(100% - 32.5px * var(--s)) calc(64.5px * var(--s)),
+
+      calc(100% - 32.5px * var(--s)) calc(100% - 64.5px * var(--s)),
+      calc(100% - 24.5px * var(--s)) calc(100% - 56.5px * var(--s)),
+
+      calc(100% - 37px * var(--s)) calc(100% - 44px * var(--s)),
+      calc(100% - 52px * var(--s)) calc(100% - 29px * var(--s)),
+
+      calc(100% - 61px * var(--s)) calc(100% - 18px * var(--s)),
+      calc(100% - 82.5px * var(--s)) calc(100% - 39.5px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(100% - 61px * var(--s)),
+      100% 100%,
+
+      calc(100% - 77px * var(--s)) 100%,
+      calc(100% - 90px * var(--s)) calc(100% - 13px * var(--s)),
+      calc(100% - 103px * var(--s)) 100%,
+
+      calc(103px * var(--s)) 100%,
+      calc(90px * var(--s)) calc(100% - 13px * var(--s)),
+      calc(77px * var(--s)) 100%,
+
+      0px 100%,
+      calc(61px * var(--s)) calc(100% - 61px * var(--s)),
+      calc(82.5px * var(--s)) calc(100% - 39.5px * var(--s)),
+      calc(61px * var(--s)) calc(100% - 18px * var(--s)),
+
+      calc(52px * var(--s)) calc(100% - 29px * var(--s)),
+      calc(37px * var(--s)) calc(100% - 44px * var(--s)),
+
+      calc(24.5px * var(--s)) calc(100% - 56.5px * var(--s)),
+      calc(32.5px * var(--s)) calc(100% - 64.5px * var(--s)),
+
+      calc(32.5px * var(--s)) calc(64.5px * var(--s)),
+      calc(24.5px * var(--s)) calc(56.5px * var(--s)),
+
+      /* first point in the path, time to CCW inner path */
+      calc(37px * var(--s)) calc(44px * var(--s)),
+      /* w = ~8 */
+      calc(45px * var(--s)) calc(52px * var(--s)),
+      calc(41px * var(--s)) calc(56px * var(--s)),
+      calc(50px * var(--s)) calc(66px * var(--s)),
+      calc(40.5px * var(--s)) calc(75.5px * var(--s)),
+
+      calc(40.5px * var(--s)) calc(100% - 75.5px * var(--s)),
+      calc(50px * var(--s)) calc(100% - 66px * var(--s)),
+      calc(41px * var(--s)) calc(100% - 56px * var(--s)),
+      calc(45px * var(--s)) calc(100% - 52px * var(--s)),
+
+      calc(37px * var(--s)) calc(100% - 44px * var(--s)),
+
+      calc(52px * var(--s)) calc(100% - 29px * var(--s)),
+      calc(59.5px * var(--s)) calc(100% - 36.5px * var(--s)),
+      calc(61px * var(--s)) calc(100% - 35px * var(--s)),
+      calc(65.5px * var(--s)) calc(100% - 39.5px * var(--s)),
+      calc(61px * var(--s)) calc(100% - 44px * var(--s)),
+      calc(25px * var(--s)) calc(100% - 8px * var(--s)),
+      calc(72.5px * var(--s)) calc(100% - 8px * var(--s)),
+      calc(90px * var(--s)) calc(100% - 25.5px * var(--s)),
+      calc(107.5px * var(--s)) calc(100% - 8px * var(--s)),
+
+      calc(100% - 107.5px * var(--s)) calc(100% - 8px * var(--s)),
+      calc(100% - 90px * var(--s)) calc(100% - 25.5px * var(--s)),
+      calc(100% - 72.5px * var(--s)) calc(100% - 8px * var(--s)),
+      calc(100% - 25px * var(--s)) calc(100% - 8px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(100% - 44px * var(--s)),
+      calc(100% - 65.5px * var(--s)) calc(100% - 39.5px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(100% - 35px * var(--s)),
+      calc(100% - 59.5px * var(--s)) calc(100% - 36.5px * var(--s)),
+      calc(100% - 52px * var(--s)) calc(100% - 29px * var(--s)),
+
+      calc(100% - 37px * var(--s)) calc(100% - 44px * var(--s)),
+
+      calc(100% - 45px * var(--s)) calc(100% - 52px * var(--s)),
+      calc(100% - 41px * var(--s)) calc(100% - 56px * var(--s)),
+      calc(100% - 50px * var(--s)) calc(100% - 66px * var(--s)),
+      calc(100% - 40.5px * var(--s)) calc(100% - 75.5px * var(--s)),
+
+      calc(100% - 40.5px * var(--s)) calc(75.5px * var(--s)),
+      calc(100% - 50px * var(--s)) calc(66px * var(--s)),
+      calc(100% - 41px * var(--s)) calc(56px * var(--s)),
+      calc(100% - 45px * var(--s)) calc(52px * var(--s)),
+
+      calc(100% - 37px * var(--s)) calc(44px * var(--s)),
+
+      calc(100% - 52px * var(--s)) calc(29px * var(--s)),
+      calc(100% - 59.5px * var(--s)) calc(36.5px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(35px * var(--s)),
+      calc(100% - 65.5px * var(--s)) calc(39.5px * var(--s)),
+      calc(100% - 61px * var(--s)) calc(44px * var(--s)),
+      calc(100% - 25px * var(--s)) calc(8px * var(--s)),
+      calc(100% - 72.5px * var(--s)) calc(8px * var(--s)),
+      calc(100% - 90px * var(--s)) calc(25.5px * var(--s)),
+      calc(100% - 107.5px * var(--s)) calc(8px * var(--s)),
+
+      calc(107.5px * var(--s)) calc(8px * var(--s)),
+      calc(90px * var(--s)) calc(25.5px * var(--s)),
+      calc(72.5px * var(--s)) calc(8px * var(--s)),
+      calc(25px * var(--s)) calc(8px * var(--s)),
+      calc(61px * var(--s)) calc(44px * var(--s)),
+      calc(65.5px * var(--s)) calc(39.5px * var(--s)),
+      calc(61px * var(--s)) calc(35px * var(--s)),
+      calc(59.5px * var(--s)) calc(36.5px * var(--s)),
+      /* union point */
+      calc(52px * var(--s)) calc(29px * var(--s)),
+      /* jump home */
+      calc(37px * var(--s)) calc(44px * var(--s))
+    );
+  }
+}
+
 </style>
