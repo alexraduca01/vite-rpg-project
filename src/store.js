@@ -10,17 +10,17 @@ export const store = reactive ({
         {
             path: "/public/videos/baldurs-gate.mp4",
             name: "Baldurs Gate 3",
-            desc: "Baldur's Gate 3 è un videogioco di ruolo (RPG) sviluppato da Larian Studios. Il gioco è basato sull'universo di Dungeons & Dragons e rappresenta il terzo capitolo della serie Baldur's Gate. Ambientato nel mondo fantasy di Forgotten Realms, il gioco combina elementi classici del genere RPG, come la creazione del personaggio, il combattimento tattico a turni e la narrativa ramificata."
+            desc: "Baldur's Gate 3 is a role-playing video game developed by Larian Studios. It is set in the Dungeons & Dragons universe and serves as the third installment in the Baldur's Gate series. Taking place in the fantasy world of Forgotten Realms, the game incorporates classic RPG elements such as character creation, turn-based tactical combat, and branching narrative."
         },
         {
             path: "/public/videos/skyrim.mp4",
             name: "The Elder Scrolls V: Skyrim",
-            desc: " The Elder Scrolls V: Skyrim è un videogioco di ruolo open-world sviluppato da Bethesda Game Studios. Pubblicato nel novembre del 2011, è il quinto capitolo della serie The Elder Scrolls. Il gioco è ambientato nella provincia di Skyrim, una regione fantasy all'interno del mondo di Tamriel. "
+            desc: " The Elder Scrolls V: Skyrim is an open-world role-playing video game developed by Bethesda Game Studios. Released in November 2011, it is the fifth installment in The Elder Scrolls series. The game is set in the province of Skyrim, a fantasy region within the world of Tamriel. "
         },
         {
             path: "/public/videos/witcher.mp4",
             name: "The Witcher 3: Wild Hunt",
-            desc: "  The Witcher 3: Wild Hunt è un videogioco di ruolo action-adventure sviluppato da CD Projekt. Pubblicato nel 2015, è il terzo capitolo della serie The Witcher, basata sulla serie di libri del polacco Andrzej Sapkowski. Il gioco è ambientato in un mondo fantasy dark e complesso. "
+            desc: "The Witcher 3: Wild Hunt is an action-adventure role-playing video game developed by CD Projekt. Released in 2015, it is the third installment in The Witcher series, based on the book series by Polish author Andrzej Sapkowski. The game is set in a dark and complex fantasy world. "
         },
     ],
     miniLogos: [

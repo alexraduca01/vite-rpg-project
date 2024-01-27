@@ -5,15 +5,17 @@
             <div class="absolutecenter text-white">
                 <h1 class="titlefs" style="z-index: 5;">Boolean's Legacy</h1>
                 <p class="fs-1 py-4 text-center">Try our game</p>
-                <router-link :to="{ name: 'game' }" class="text-center">
-                    <FancyButton :text="'play now'" />
-                </router-link>
+                <div class="d-flex justify-content-center ">
+                    <router-link :to="{ name: 'game' }">
+                        <FancyButton :text="'play now'" />
+                    </router-link>
+                </div>
             </div>
         </div>
         <div class="py-5 mt-5 w-100">
             <div class="container">
                 <div>
-                    <h6 class="text-white fs-2">I nostri <span class="fs-1">10/10</span></h6>
+                    <h6 class="text-white fs-2">Our <span class="fs-1">10/10</span></h6>
                 </div>
                 <div class="w-100 d-flex justify-content-between gap-5 pb-5 mb-5">
                     <img src="/public/img/cornice.png" class="frame" alt="cornice">

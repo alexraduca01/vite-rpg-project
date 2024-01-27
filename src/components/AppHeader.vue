@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg pt-4">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid box-shadow">
       <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
       <button
