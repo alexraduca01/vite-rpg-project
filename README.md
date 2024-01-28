@@ -1,17 +1,17 @@
 # Boolean's Legacy  <img src="./public/img/logo.png" width="225" height="225">
 
 ## Description
-Boolean's Legacy è un entusiasmante sito web RPG fantasy che unisce il fascino epico di un mondo fantastico con un coinvolgente web game. Creato utilizzando il framework Laravel per il backend e Vite per il frontend, Boolean's Legacy offre un'esperienza completa per gli amanti del genere.
+Boolean's Legacy is an exciting fantasy RPG website that combines the epic charm of a fantastical world with an engaging web game. Created using the Laravel framework for the backend and Vite for the frontend, Boolean's Legacy provides a comprehensive experience for genre enthusiasts.
 
-Caratteristiche Principali:
+Key Features:
 
-Esplorazione del Mondo: Immergiti in un vasto mondo fantasy ricco di luoghi misteriosi, città affollate e dungeon pericolosi. Scopri i nostri personaggi intriganti e approfondisci la loro storia.
+World Exploration: Immerse yourself in a vast fantasy world filled with mysterious locations, bustling cities, and dangerous dungeons. Discover intriguing characters and delve into their stories.
 
-Web Game Integrato: Partecipa a emozionanti avventure con il nostro web game incorporato. Combatti contro eroi mitici mettendo alla prova la tua strategia e la tua fortuna.
+Integrated Web Game: Engage in thrilling adventures with our embedded web game. Battle mythical heroes, putting your strategy and luck to the test.
 
-Tecnologie Avanzate: Boolean's Legacy sfrutta la potenza di Laravel per garantire una gestione efficiente del backend e Vite per un'esperienza di gioco fluida e reattiva sul frontend.
+Advanced Technologies: Boolean's Legacy harnesses the power of Laravel for efficient backend management and Vite for a smooth and responsive gaming experience on the frontend.
 
-Che tu sia un veterano degli RPG o un neofita del genere fantasy, Boolean's Legacy offre un'esperienza coinvolgente che ti catapulterà in un mondo di avventure senza fine. Preparati a vivere epiche gesta e a diventare una leggenda nel nostro amato reame!
+Whether you're an RPG veteran or a newcomer to the fantasy genre, Boolean's Legacy offers an immersive experience that will catapult you into a world of endless adventures. Prepare to live epic feats and become a legend in our beloved realm!
 
 ## Index
 ### [Instructions](#instructions)
