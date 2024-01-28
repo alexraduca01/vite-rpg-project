@@ -42,5 +42,6 @@ export const store = reactive ({
         {
             url: '/public/img/wow.png',
         },
-    ]
+    ],
+    charHealth: 0,
 })
