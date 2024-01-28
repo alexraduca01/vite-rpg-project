@@ -31,6 +31,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="life d-flex">
+                    <div class="bar-container user-char">
+                        <div class="bar" ref="bar" :class="lifeFlag ? 'opacity-100' : 'opacity-0'" :style="{width: (this.singleCharacter.life / 100) * 100 + '%'}">
+
+                        </div>
+                    </div>
+                    <div class="bar-container ia-char" >
+                        <div class="bar" ref="iaBar" :class="fightFlag ? 'opacity-100' : 'opacity-0'" :style="{width: (this.iaCharacter.life / 100) * 100 + '%'}">
+
+                        </div>
+                    </div>
+                </div>
                 <div class="logs d-flex justify-content-around" :class="dmgFlag ? 'opacity-100' : 'opacity-0'">
                     <div>
                         <span class="text-success fs-3 fantasy-btn-xl" v-if="iaDamage == 0">MISS !!</span>
@@ -81,7 +93,7 @@
                 <swiper :slidesPerView="5" :spaceBetween="10" :freeMode="true" :modules="modules" class="mySwiper rounded">
                     <swiper-slide  class="char-box cursor-pointer" v-for="item in store.characters">
                         <img @click="changeCharacter(item.id)" :src="store.imgBasePath + item.image" class="img-fluid" :alt="item.name">
-                        <div class="transparent-bg py-3 rounded-bottom-5">
+                        <div class="transparent-bg py-3 rounded-bottom-5" style="height: 100px;">
                             <h6 class="text-center m-0 py-1 text-danger">{{ item.name }}</h6>
                             <h6 class="text-center m-0 text-warning">{{ item.type.name }}</h6>
                         </div>
@@ -136,6 +148,7 @@ import 'swiper/css/pagination';
                 dmgFlag: false,
                 dice: 0,
                 endGame: false,
+                lifeFlag: false,
             }
         },
         methods: {
@@ -164,7 +177,9 @@ import 'swiper/css/pagination';
                 }
                     this.charFlag = true;
                     this.singleCharacter = this.activeCharacter(id);
+                    store.charHealth = this.singleCharacter.life;
                     this.playFlag = true;
+                    this.lifeFlag = true;
                 }
             },
             activeCharacter(id) {
@@ -204,6 +219,8 @@ import 'swiper/css/pagination';
                     // console.log(userDmg, iaDmg);
                     this.userDamage = userDmg;
                     this.iaDamage = iaDmg;
+                    this.updateHealthBar();
+                    this.updateIaBar();
                 }
                 this.dmgFlag = true;
                 if (this.iaCharacter.life <= 0 && this.singleCharacter.life <= 0){
@@ -237,6 +254,16 @@ import 'swiper/css/pagination';
                 }
                 return iaDmg;
             },
+            updateHealthBar(){
+                let healthPerc = (this.singleCharacter.life / 100) * 100;
+                this.$refs.bar.style.width = `${healthPerc}%`;
+                this.$refs.bar.style.transition = 'width 1s linear';
+            },
+            updateIaBar(){
+                let healthPerc = (this.iaCharacter.life / 100) * 100;
+                this.$refs.iaBar.style.width = `${healthPerc}%`;
+                this.$refs.iaBar.style.transition = 'width 1s linear';
+            }
         },
         mounted(){
             this.getAllCharacters();
@@ -245,6 +272,34 @@ import 'swiper/css/pagination';
 </script>
 
 <style lang="scss" scoped>
+
+.life {
+    gap: 410px;
+}
+
+.bar-container {
+    width: 250px;
+    height: 18px;
+    border-radius: 15px;
+    text-align: center;
+}
+.user-char {
+    position: absolute;
+    bottom: 22%;
+    left: 10.5%;
+    transition: width 1s linear;
+}
+.ia-char {
+    position: absolute;
+    bottom: 22%;
+    right: 10.3%;
+    transition: width 1s linear;
+}
+.bar {
+    height: 100%;
+    border-radius: 15px;
+    background-color: green;
+}
 
 .big-font {
     font-size: 120px;
@@ -264,6 +319,7 @@ import 'swiper/css/pagination';
     position: absolute;
     top: 18%;
     width: 100%;
+    gap: 270px;
     transition: opacity 0.5s ease-out;
 }
 .play {

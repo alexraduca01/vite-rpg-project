@@ -59,19 +59,19 @@
             <div class="fs-5 w-50 p-3 py-5 test">
                 <p>About Us</p>
                 <h1>About Booleans Legacy</h1>
-                <p>Sotto il cielo stellato, eroi silenziosi sfidano l'oscurità, forgiando destini con coraggio, mentre il destino tessitore sorride.</p> 
-                <p>Nell'epica danza della vita, i valorosi affrontano le tempeste, le passioni ardono come fuoco eterno. Tra le pagine dell'eternità, il destino intreccia le storie, creando leggende incancellabili nel cuore del tempo.</p>
-                <p>Sotto cieli immensi e stelle scintillanti, eroi emergono dall'ombra dell'ignoto, con cuori ardenti di speranza. Attraverso il labirinto del destino, sfidano il fato, intrecciando leggende eteree che risuonano nei secoli, come canti immortali nel tessuto dell'universo.</p>
+                <p>Welcome to Booleans legacy, where the boundaries between reality and fantasy blur, and epic adventures await! Immerse yourself in a realm where creativity knows no bounds, and every choice you make shapes the destiny of your character.</p> 
+                <p>At Booleans legacy, we are passionate storytellers, game enthusiasts, and world builders. Our mission is to provide a platform where players from around the globe can come together to embark on thrilling journeys, forge alliances, and confront formidable foes.</p>
+                <p>We envision a community where imagination flourishes and narratives unfold in ways never imagined. Through engaging storylines, intricate game mechanics, and a supportive community, we strive to create an environment that sparks inspiration and fosters a love for storytelling.</p>
             </div>
             <div class="w-50 pe-5">
                 <img src="/public/img/cornice.png" class="frame2" alt="">
                 <img class="w-100 shadow-sm" src="https://wallpapers.com/images/hd/elden-ring-background-giq5p36lqqu12rnj.jpg" alt="">
             </div>
         </div>
-        <div class="text-white bgsectionhome d-flex flex-column justify-content-center align-items-center">
+        <div class="text-white gap-2 bgsectionhome d-flex flex-column justify-content-center align-items-center">
             <p>Booleans Legacy</p>
-            <h1>Nessuna rinascita, nessun rimpianto!</h1>
-            <p class="fs-5 p-4">Affronta i pericoli di Azeroth nei reami Hardcore di Boolean e scopri quanto lontano riesci ad arrivare. Hai solo una vita da vivere. Se morirai, non ci sarà nessuno Spirit Healer a rimandarti nel mondo dei vivi</p>
+            <h1>No rebirth, no regrets!</h1>
+            <p class="fs-5 p-4">Emerge the dangers of Boolean in Boolean's Hardcore Realms and discover how far you can go. You only have one life to live. If you die, there will be no Spirit Healer to send you back to the world of the living</p>
         </div>
         <div class="w-100 bgdark">
             <div class="container p-5">
