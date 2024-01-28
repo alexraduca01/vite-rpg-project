@@ -2,7 +2,7 @@
     <div class="characters-bg">
         <div class="container pt-80 text-white vh-100">
             <h1 class="text-center">{{ character.name }}</h1>
-            <div class="row align-items-center mt-5 pt-5">
+            <div class="row align-items-center mt-5" style="padding-top: 150px;">
                 <div class="col-4 pe-4">
                     <div>
                         <h3>Description</h3>
@@ -16,8 +16,9 @@
 
                     <div>
                         <h3>Available Weapons</h3>
-                        <ul class="d-flex align-items-center list-unstyled">
-                            <li v-for="weapon in character.items">{{ weapon.name }}
+                        <ul class="d-flex justify-content-between align-items-center list-unstyled">
+                            <li class="d-flex flex-column align-items-center" v-for="weapon in character.items">
+                                <p class="text-center">{{ weapon.name }}</p>
                                 <img :src="store.imgBasePath + weapon?.image" :alt="weapon.name" class="img-weapons">
                             </li>
 

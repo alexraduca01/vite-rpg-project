@@ -93,7 +93,7 @@
                 <swiper :slidesPerView="5" :spaceBetween="10" :freeMode="true" :modules="modules" class="mySwiper rounded">
                     <swiper-slide  class="char-box cursor-pointer" v-for="item in store.characters">
                         <img @click="changeCharacter(item.id)" :src="store.imgBasePath + item.image" class="img-fluid" :alt="item.name">
-                        <div class="transparent-bg py-3 rounded-bottom-5">
+                        <div class="transparent-bg py-3 rounded-bottom-5" style="height: 100px;">
                             <h6 class="text-center m-0 py-1 text-danger">{{ item.name }}</h6>
                             <h6 class="text-center m-0 text-warning">{{ item.type.name }}</h6>
                         </div>
