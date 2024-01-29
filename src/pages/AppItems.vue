@@ -10,7 +10,7 @@
                                 </div>
                                 <img :src="store.imgBasePath + item.image" :alt="item.name" class="frame-art object-fit-cover">
                                 <div class="frame-type-line">
-                                    <h1 class="type">{{ item.type }}</h1>
+                                    <h1 class="type">{{ item.category }}</h1>
                                     <!-- Here goes the set icon -->
                                 </div>
                                 <div class="frame-text-box">
