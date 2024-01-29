@@ -68,21 +68,21 @@ export default {
 }
 .frame-header, .frame-art, .frame-type-line {
  box-shadow: 
- 0 0 0 2px #522214,
- 0 0 0 5px #522214,
- -3px 3px 2px 5px #522214;
+ 0 0 0 2px #171314,
+ 0 0 0 5px #171314  ,
+ -3px 3px 2px 5px #171314;
 margin-bottom: 7px;
 background: 
- linear-gradient( 0deg, rgba(82, 34, 20, .3), rgba(82, 34, 20, .3) ), 
+ linear-gradient( 0deg, rgba(82, 82, 90, .3), rgba(82, 82, 90, .3) ), 
  url(https://image.ibb.co/jKByZn/tile_bg_1.jpg);
 }
 .frame-text-box {
  box-shadow: 
- 0 0 0 5px #522214,
- -3px 3px 2px 5px #522214;
+ 0 0 0 5px #171314,
+ -3px 3px 2px 5px #171314;
  margin-top: 1px;
  background: 
- linear-gradient( 0deg, rgba(82, 34, 20, .3), rgba(82, 34, 20, .3) ), 
+ linear-gradient( 0deg, rgba(82, 82, 90, .3), rgba(82, 82, 90, .3) ), 
  url(https://image.ibb.co/jKByZn/tile_bg_1.jpg); 
  width: 330px;
  margin-left: 12px;
@@ -92,7 +92,7 @@ background:
 }
 .frame-header, .frame-type-line {
  background: 
- linear-gradient( 0deg, rgba(82, 34, 20, .3), rgba(82, 34, 20, .3) ), 
+ linear-gradient( 0deg, rgba(82, 82, 90, .5), rgba(82, 82, 90, .5) ), 
  url(https://image.ibb.co/jKByZn/tile_bg_1.jpg); 
  display: flex;
  margin-top: 10px;
@@ -118,6 +118,7 @@ background:
 }
 .card-background {
     background-color: #522214;
+    background: url(https://storage.googleapis.com/pai-images/0c20bcb2557d41f08d1da673da7d80e1.jpeg);
 }
 .card-container {
  border: 1px solid #171314;
