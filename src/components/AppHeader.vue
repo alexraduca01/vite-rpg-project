@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid box-shadow">
-      <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
+      <router-link :to="{ name: 'game' }">
+        <a class="navbar-brand ms-2" href="#"><img src="../../public/img/logo.png" class="logo" alt="logo"></a>
+      </router-link>
       <button
         class="me-2 navbar-toggler bg-white"
         type="button"
@@ -41,15 +43,15 @@ import FancyButton from '../components/FancyButton.vue';
                         name: "home",
                     },
                     {
-                        label: "Characters",
-                        name: "characters",
-                    },
-                    {
                         label: "Classes",
                         name: "types",
                     },
                     {
-                        label: "Items",
+                        label: "Characters",
+                        name: "characters",
+                    },
+                    {
+                        label: "Weapons",
                         name: "items",
                     },
                 ],
