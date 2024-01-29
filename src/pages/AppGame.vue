@@ -33,7 +33,7 @@
                 </div>
                 <div class="life d-flex">
                     <div class="bar-container user-char">
-                        <div class="bar" ref="bar" :class="lifeFlag ? 'opacity-100' : 'opacity-0'" :style="{width: (this.singleCharacter.life / 100) * 100 + '%'}">
+                        <div class="bar" ref="bar" :class="fightFlag ? 'opacity-100' : 'opacity-0'" :style="{width: (this.singleCharacter.life / 100) * 100 + '%'}">
 
                         </div>
                     </div>
@@ -148,7 +148,6 @@ import 'swiper/css/pagination';
                 dmgFlag: false,
                 dice: 0,
                 endGame: false,
-                lifeFlag: false,
             }
         },
         methods: {
@@ -179,7 +178,6 @@ import 'swiper/css/pagination';
                     this.singleCharacter = this.activeCharacter(id);
                     store.charHealth = this.singleCharacter.life;
                     this.playFlag = true;
-                    this.lifeFlag = true;
                 }
             },
             activeCharacter(id) {

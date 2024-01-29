@@ -9,7 +9,7 @@ export const store = reactive ({
     videos: [
         {
             path: "/public/videos/baldurs-gate.mp4",
-            name: "Baldurs Gate 3",
+            name: "Baldur's Gate 3",
             desc: "Baldur's Gate 3 is a role-playing video game developed by Larian Studios. It is set in the Dungeons & Dragons universe and serves as the third installment in the Baldur's Gate series. Taking place in the fantasy world of Forgotten Realms, the game incorporates classic RPG elements such as character creation, turn-based tactical combat, and branching narrative."
         },
         {
