@@ -1,7 +1,7 @@
 <template>
   <!-- Characters Card -->
   <router-link :to="{ name: 'character-detail', params: { slug: character.slug } }" class="text-decoration-none text-dark">
-    <div class="card-container">
+    <div class="card-container scale">
 
       <div class="card-background">
 
@@ -328,5 +328,9 @@ export default {
 
 .my-fs {
   font-size: 14px;
+}
+.scale:hover{
+  scale: 1.1;
+  transition: 0.3s;
 }
 </style>
